@@ -5,6 +5,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using PetCare.Data;
+    using PetCare.Data.Models.Employe;
     using PetCare.Data.Models.Pet;
 
     public static class ApplicationBuilderExtensions
@@ -25,6 +26,19 @@
 
         private static void SeedCategories(PetCareDbContext data)
         {
+            if (data.Positions.Any())
+            {
+                return;
+            }
+
+            data.Positions.AddRange(new[]
+            {
+                new Position { EmployePosition  = "Doctor"},
+                new Position { EmployePosition  = "Nurse"},
+                new Position { EmployePosition  = "Administrator"},
+            });
+            data.SaveChanges();
+
             if (data.Animals.Any())
             {
                 return;
