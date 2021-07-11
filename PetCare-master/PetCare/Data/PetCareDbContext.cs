@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using PetCare.Data.Models.Employe;
+    using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
 
     public class PetCareDbContext : IdentityDbContext
@@ -15,7 +15,7 @@
         public DbSet<AnimalType> Animals { get; init; }
         public DbSet<Pet> Pets { get; init; }
         public DbSet<Position> Positions { get; init; }
-        public DbSet<Employe> Employes { get; init; }
+        public DbSet<Employee> Employees { get; init; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,9 +27,9 @@
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
-                .Entity<Employe>()
+                .Entity<Employee>()
                 .HasOne(p => p.Position)
-                .WithMany(e => e.Employes)
+                .WithMany(e => e.Employees)
                 .HasForeignKey(p => p.PositionId)
                 .OnDelete(DeleteBehavior.Restrict);
 

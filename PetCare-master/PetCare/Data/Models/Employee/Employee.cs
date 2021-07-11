@@ -1,4 +1,4 @@
-﻿namespace PetCare.Data.Models.Employe
+﻿namespace PetCare.Data.Models.Employee
 {
     using System;
     using System.Linq;
@@ -7,7 +7,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using static PetCare.Models.DataConstants;
-    public class Employe
+    public class Employee
     {
         public string Id { get; init; } = Guid.NewGuid().ToString();
 

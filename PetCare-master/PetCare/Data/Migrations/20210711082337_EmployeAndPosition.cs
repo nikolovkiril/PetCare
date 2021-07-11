@@ -13,7 +13,7 @@ namespace PetCare.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployePosition = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    EmployeePosition = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -21,7 +21,7 @@ namespace PetCare.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employes",
+                name: "Employees",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -33,9 +33,9 @@ namespace PetCare.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employes", x => x.Id);
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employes_Positions_PositionId",
+                        name: "FK_Employees_Positions_PositionId",
                         column: x => x.PositionId,
                         principalTable: "Positions",
                         principalColumn: "Id",
@@ -43,15 +43,15 @@ namespace PetCare.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employes_PositionId",
-                table: "Employes",
+                name: "IX_Employees_PositionId",
+                table: "Employees",
                 column: "PositionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employes");
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Positions");

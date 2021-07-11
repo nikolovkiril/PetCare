@@ -5,7 +5,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using PetCare.Data;
-    using PetCare.Data.Models.Employe;
+    using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
 
     public static class ApplicationBuilderExtensions
@@ -33,10 +33,11 @@
 
             data.Positions.AddRange(new[]
             {
-                new Position { EmployePosition  = "Doctor"},
-                new Position { EmployePosition  = "Nurse"},
-                new Position { EmployePosition  = "Administrator"},
+                new Position { EmployeePosition  = "Doctor"},
+                new Position { EmployeePosition  = "Nurse"},
+                new Position { EmployeePosition  = "Administrator"},
             });
+
             data.SaveChanges();
 
             if (data.Animals.Any())

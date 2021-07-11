@@ -10,7 +10,7 @@ using PetCare.Data;
 namespace PetCare.Data.Migrations
 {
     [DbContext(typeof(PetCareDbContext))]
-    [Migration("20210711080436_EmployeAndPosition")]
+    [Migration("20210711082337_EmployeAndPosition")]
     partial class EmployeAndPosition
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,7 +221,7 @@ namespace PetCare.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Employe.Employe", b =>
+            modelBuilder.Entity("PetCare.Data.Models.Employee.Employee", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -249,17 +249,17 @@ namespace PetCare.Data.Migrations
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("Employes");
+                    b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Employe.Position", b =>
+            modelBuilder.Entity("PetCare.Data.Models.Employee.Position", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EmployePosition")
+                    b.Property<string>("EmployeePosition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -370,10 +370,10 @@ namespace PetCare.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Employe.Employe", b =>
+            modelBuilder.Entity("PetCare.Data.Models.Employee.Employee", b =>
                 {
-                    b.HasOne("PetCare.Data.Models.Employe.Position", "Position")
-                        .WithMany("Employes")
+                    b.HasOne("PetCare.Data.Models.Employee.Position", "Position")
+                        .WithMany("Employees")
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -392,9 +392,9 @@ namespace PetCare.Data.Migrations
                     b.Navigation("AnimalType");
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Employe.Position", b =>
+            modelBuilder.Entity("PetCare.Data.Models.Employee.Position", b =>
                 {
-                    b.Navigation("Employes");
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("PetCare.Data.Models.Pet.AnimalType", b =>

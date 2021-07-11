@@ -1,4 +1,4 @@
-﻿namespace PetCare.Data.Models.Employe
+﻿namespace PetCare.Data.Models.Employee
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@
         public int Id { get; init; }
 
         [Required]
-        public string EmployePosition { get; set; }
-        public IEnumerable<Employe> Employes { get; set; } = new List<Employe>();
+        public string EmployeePosition { get; set; }
+        public IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
     }
 }
