@@ -9,7 +9,7 @@ namespace PetCare.Data.Migrations
     using PetCare.Data;
     using System;
 
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(PetCareDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

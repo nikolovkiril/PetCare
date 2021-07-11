@@ -1,0 +1,49 @@
+﻿@model AddPetFormModel
+
+@{
+    ViewData["Title"] = "Add your Pet";
+}
+<body class="masterForm">
+    <div class="container font-weight-bold">
+        <div class="row">
+            <div class="col-sm-12 offset-lg-2 col-lg-6 offset-xl-3 col-xl-6">
+                <h2 class="heading-margin text-center">Tell Us more about your <kbd><code>Pet</code></kbd></h2>
+                <form method="post">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Pet Name">
+                        <span asp-validation-for="Name" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age"></label>
+                        <input asp-for="Age" class="form-control" placeholder="Pet Age">
+                        <span asp-validation-for="Age" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AnimalId"></label>
+                        <select asp-for="AnimalId" class="custom-select" required>
+                            @foreach (var pet in Model.AnimalTypes)
+                            {
+                                <option value="@pet.Id">@pet.Type</option>
+                            }
+                        </select>
+                        <span asp-validation-for="AnimalId" class="small text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Breed"></label>
+                        <input asp-for="Breed" class="form-control" placeholder="If unknown Plese tipe N/A">
+                        <span asp-validation-for="Breed" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Description of your Pet current condition"></textarea>
+                        <span asp-validation-for="Description" class="small text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-success float-sm-right">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>

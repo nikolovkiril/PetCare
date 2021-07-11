@@ -1,0 +1,28 @@
+﻿@*@model DetailsPetFormModel*@
+@{ 
+    ViewData["Title"] = "Details";
+}
+<div class="container col-sm-12 offset-lg-2 col-lg-6 offset-xl-3 col-xl-6">
+    <h2 class="text-center">Pet Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Breed</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model)
+            {
+                <tr>
+                    <td>@pet.Name</td>
+                    <td>@pet.Age</td>
+                    <td>@pet.Breed</td>
+                    <td>@pet.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
