@@ -23,11 +23,18 @@
         [Range(AgeMinRange, AgeMaxRange)]
         public byte Age { get; init; }
 
+        [DataType(DataType.Date)]
         public DateTime HireDate { get; init; }
 
         [Required]
         public int PositionId { get; set; }
         public Position Position { get; set; }
+
+        [Required]
+        public string Image { get; set; }
+
+        [Required]
+        public string Autobiography { get; set; }
 
     }
 }

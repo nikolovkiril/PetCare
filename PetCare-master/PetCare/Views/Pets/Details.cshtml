@@ -1,33 +1,16 @@
-﻿@model List<DetailsPetFormModel>
+﻿@model DetailsPetFormModel
 
 @{
     ViewData["Title"] = "Details";
 }
-
-
-<div class="container col-sm-12 offset-lg-2 col-lg-6 offset-xl-3 col-xl-6">
-    <h2 class="text-center">Pet Details</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Animal</th>
-                <th>Breed</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var pet in Model)
-            {
-                <tr>
-                    <td>@pet.Name</td>
-                    <td>@pet.Age</td>
-                    <td>@pet.AnimalType</td>
-                    <td>@pet.Breed</td>
-                    <td>@pet.Description</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="card text-center">
+    <div class="card-header">
+        @Model.AnimalType.ToUpper() @Model.Breed
+    </div>
+    <div class="card-body">
+        <h5 class="card-title text-center">@Model.Name is @Model.Age Years old</h5>
+        <img class="card-img-top" src="@Model.Image">
+        <p class="card-text-custom">@Model.Description</p>
+        <a href="/Employees/Team" class="btn btn-primary">Go back</a>
+    </div>
 </div>

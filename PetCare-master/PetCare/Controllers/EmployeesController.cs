@@ -8,6 +8,7 @@
     using PetCare.Data;
     using PetCare.Models.Employees;
     using PetCare.Data.Models.Employee;
+    using System.IO;
 
     public class EmployeesController : Controller
     {
@@ -40,10 +41,12 @@
             var addEmployee = new Employee
             {
                 FirstName = employee.FirstName,
-                LastName  = employee.LastName,
+                LastName = employee.LastName,
                 Age = employee.Age,
                 HireDate = DateTime.UtcNow,
                 PositionId = employee.PositionId,
+                Image = employee.ImageUrl,
+                Autobiography = employee.Autobiography
             };
 
             this.data.Employees.Add(addEmployee);
@@ -66,17 +69,46 @@
         {
             var employees = this.data
                 .Employees
-                .Select(e => new DetailsEmployeeViewModel
+                .Select(e => new DetailsEmployeeViewModel   
                 {
+                    Id = e.Id,
                     FirstName = e.FirstName,
                     LasttName = e.LastName,
                     Age = e.Age,
                     Position = e.Position.EmployeePosition,
-                    HireDate = e.HireDate
+                    HireDate = e.HireDate.ToString("dd MMMM yy"),
+                    Image = e.Image,
                 })
                 .ToList();
 
             return View(employees);
+        }
+
+        public IActionResult Details(string employeeId)
+        {
+            if (!this.data.Employees.Any(t => t.Id == employeeId))
+            {
+                return Redirect("/Employees/Team");
+            }
+
+            var employee = this.data
+                 .Employees
+                 .Where(e => e.Id == employeeId)
+                 .Select(e => new DetailsEmployeeViewModel
+                 {
+                     
+                     Id = employeeId,
+                     FirstName = e.FirstName,
+                     LasttName = e.LastName,
+                     Age = e.Age,
+                     HireDate = e.HireDate.ToString("dd MMMM yy"),
+                     Image = e.Image,
+                     Position = e.Position.EmployeePosition,
+                     Autobiography = e.Autobiography
+                 })
+                 .FirstOrDefault();
+
+            return View(employee);
         }
     }
 }

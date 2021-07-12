@@ -227,6 +227,10 @@ namespace PetCare.Data.Migrations
                     b.Property<byte>("Age")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("Autobiography")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -234,6 +238,10 @@ namespace PetCare.Data.Migrations
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -302,6 +310,10 @@ namespace PetCare.Data.Migrations
                         .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

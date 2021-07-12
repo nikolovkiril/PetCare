@@ -14,9 +14,9 @@
             ErrorMessage = "Name must be between '2' and '40' symbols.")]
         public string Name { get; init; }
 
-        [Required]
-        [Range(PetAgeMinRange,PetAgeMaxRange,ErrorMessage = "Age must be between 1 and 100.")]
-        public byte Age { get; init; }
+        //[Required]
+        //[Range(PetAgeMinRange,PetAgeMaxRange,ErrorMessage = "Age must be between 1 and 100.")]
+        //public byte Age { get; init; }
 
         [Display(Name = "Please select")]
         public int AnimalId { get; init; }
@@ -37,5 +37,8 @@
         public string Breed { get; init; }
 
         public IEnumerable<AnimalTypeViewModel> AnimalTypes { get; set; }
+
+        [Required]
+        public string Image { get; set; }
     }
 }

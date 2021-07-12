@@ -110,6 +110,18 @@ footer.border-top {
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }*/
+.responsive {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
 
-
-
+.card{
+    padding: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-color: black;
+}
+.card-text-custom {
+    margin-top: 30px;
+}

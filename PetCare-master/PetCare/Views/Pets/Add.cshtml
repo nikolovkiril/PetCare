@@ -35,14 +35,15 @@
                         <span asp-validation-for="BirthDate" class="small text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Age"></label>
-                        <input asp-for="Age" class="form-control" placeholder="Pet Age">
-                        <span asp-validation-for="Age" class="small text-danger"></span>
-                    </div>
-                    <div class="form-group">
                         <label asp-for="Description"></label>
                         <textarea asp-for="Description" class="form-control" rows="3" placeholder="Description of Pet current condition"></textarea>
                         <span asp-validation-for="Description" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image"></label>
+                        <input asp-for="Image" class="form-control" placeholder="Image">
+                        <br />
+                        <span asp-validation-for="Image" class="small text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-success float-sm-right">Submit</button>
                 </form>

@@ -6,10 +6,11 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Security.Principal;
 
     using static PetCare.Models.DataConstants;
 
-    public class Pet
+    public class Pet 
     {
         public string Id { get; init; } = Guid.NewGuid().ToString();
 
@@ -32,7 +33,11 @@
 
         //public string UserId { get; set; }
 
+        [Required]
         public int AnimalId { get; set; }
         public AnimalType AnimalType { get; set; }
+
+        [Required]
+        public string Image { get; set; }
     }
 }

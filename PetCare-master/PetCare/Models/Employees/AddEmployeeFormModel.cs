@@ -24,12 +24,19 @@
         [Range(AgeMinRange, AgeMaxRange, ErrorMessage = "Age must be between 16 and 99.")]
         public byte Age { get; init; }
 
-        public DateTime HireDate { get; init; } = DateTime.UtcNow;
+        public DateTime HireDate { get; init; } 
 
         [Display(Name = "Please select")]
         [Required]
         public int PositionId { get; init; }
 
         public IEnumerable<PositionViewModel> EmployeePosition { get; set; }
+
+        [Required]
+        public string ImageUrl { get; set; }
+
+        [Required]
+        [MinLength(AutobiographyMinLength, ErrorMessage = "The Autobiography field is required , min 10 symbols.")]
+        public string Autobiography { get; set; }
     }
 }

@@ -24,5 +24,7 @@
 
         public const int AgeMinRange = 16;
         public const int AgeMaxRange = 99;
+
+        public const int AutobiographyMinLength = 10;
     }
 }
