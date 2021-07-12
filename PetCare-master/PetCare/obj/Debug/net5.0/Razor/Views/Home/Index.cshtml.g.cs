@@ -33,8 +33,15 @@ using PetCare.Models.Pets;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Models.Employees;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"001b0cbb72a8d01361024a7f6c726cdc1cbdb822", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"01994919fdc253b20bcad3b48fa95f38e99082d4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"46936b54303aca6a77afd3e20a5204b1538af850", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

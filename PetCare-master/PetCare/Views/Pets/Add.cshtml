@@ -10,16 +10,6 @@
                 <h2 class="heading-margin text-center">Tell Us more about your <kbd><code>Pet</code></kbd></h2>
                 <form method="post">
                     <div class="form-group">
-                        <label asp-for="Name"></label>
-                        <input asp-for="Name" class="form-control" placeholder="Pet Name">
-                        <span asp-validation-for="Name" class="small text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Age"></label>
-                        <input asp-for="Age" class="form-control" placeholder="Pet Age">
-                        <span asp-validation-for="Age" class="small text-danger"></span>
-                    </div>
-                    <div class="form-group">
                         <label asp-for="AnimalId"></label>
                         <select asp-for="AnimalId" class="custom-select" required>
                             @foreach (var pet in Model.AnimalTypes)
@@ -28,7 +18,6 @@
                             }
                         </select>
                         <span asp-validation-for="AnimalId" class="small text-danger"></span>
-
                     </div>
                     <div class="form-group">
                         <label asp-for="Breed"></label>
@@ -36,8 +25,23 @@
                         <span asp-validation-for="Breed" class="small text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Pet Name">
+                        <span asp-validation-for="Name" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BirthDate"></label>
+                        <input asp-for="BirthDate" class="form-control" placeholder="Birth Date">
+                        <span asp-validation-for="BirthDate" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age"></label>
+                        <input asp-for="Age" class="form-control" placeholder="Pet Age">
+                        <span asp-validation-for="Age" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Description"></label>
-                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Description of your Pet current condition"></textarea>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Description of Pet current condition"></textarea>
                         <span asp-validation-for="Description" class="small text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-success float-sm-right">Submit</button>

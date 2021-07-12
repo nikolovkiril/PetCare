@@ -95,6 +95,17 @@ footer.border-top {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.masterFormEmp {
+    /* The image used */
+    background-image: url("../Images/AVMAFutureLeadersClassTools1.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /*.form-control {
     background-color: rgba(0, 0, 0, 0);
     border: none;

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace PetCare.Models.Pets
+﻿namespace PetCare.Models.Pets
 {
     public class DetailsPetFormModel
     {
@@ -8,5 +6,6 @@ namespace PetCare.Models.Pets
         public byte Age { get; set; }
         public string Breed { get; set; }
         public string Description { get; set; }
+        public string AnimalType { get; set; }
     }
 }

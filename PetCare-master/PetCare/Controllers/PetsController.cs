@@ -27,6 +27,7 @@
             {
                 this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options.");
             }
+
             if (pet.AnimalId == 1)
             {
                 this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options , N/A is not valid.");
@@ -38,21 +39,23 @@
                 
                 return View(pet);
             }
-            var petToAdd = new Pet
+
+            var addPet = new Pet
             {
                 Name = pet.Name,
                 Age = pet.Age,
                 Breed = pet.Breed,
                 AnimalId = pet.AnimalId,
                 Description = pet.Description,
-                BirthDate = pet.DateTime
+                BirthDate = pet.BirthDate
 
             };
-            this.data.Pets.Add(petToAdd);
+
+            this.data.Pets.Add(addPet);
 
             this.data.SaveChanges();
 
-            return RedirectToAction("Index" , "Home"); //TODO : MyPet 
+            return RedirectToAction("Details", "Pets"); 
         }
 
         public IEnumerable<AnimalTypeViewModel> GetAnimalTypes()
@@ -73,7 +76,8 @@
                     Name = p.Name,
                     Age = p.Age,
                     Breed = p.Breed,
-                    Description = p.Description
+                    Description = p.Description,
+                    AnimalType = p.AnimalType.Type
                 })
                 .ToList();
 

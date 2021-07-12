@@ -27,8 +27,8 @@
             ErrorMessage = "Description must be with a minimum length of '10' symbols.")]
         public string Description { get; init; }
 
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = false)]
-        public DateTime DateTime { get; init; } = DateTime.UtcNow;
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime BirthDate { get; init; }
 
         [Required]
         [StringLength(BreedMaxLength,

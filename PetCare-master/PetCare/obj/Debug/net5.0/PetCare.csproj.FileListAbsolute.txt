@@ -393,4 +393,5 @@ D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.pdb
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.genruntimeconfig.cache
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\Add.cshtml.g.cs
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\Details.cshtml.g.cs
-D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Home\Team.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Employees\Team.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Employees\Add.cshtml.g.cs

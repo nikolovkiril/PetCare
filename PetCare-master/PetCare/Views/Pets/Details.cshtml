@@ -1,7 +1,10 @@
-﻿@*@model DetailsPetFormModel*@
-@{ 
+﻿@model List<DetailsPetFormModel>
+
+@{
     ViewData["Title"] = "Details";
 }
+
+
 <div class="container col-sm-12 offset-lg-2 col-lg-6 offset-xl-3 col-xl-6">
     <h2 class="text-center">Pet Details</h2>
     <table class="table">
@@ -9,6 +12,7 @@
             <tr>
                 <th>Name</th>
                 <th>Age</th>
+                <th>Animal</th>
                 <th>Breed</th>
                 <th>Description</th>
             </tr>
@@ -19,6 +23,7 @@
                 <tr>
                     <td>@pet.Name</td>
                     <td>@pet.Age</td>
+                    <td>@pet.AnimalType</td>
                     <td>@pet.Breed</td>
                     <td>@pet.Description</td>
                 </tr>
