@@ -1,0 +1,24 @@
+﻿@model DetailsEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="card text-center">
+    <div class="card-header ">
+        @Model.Position.ToUpper()
+    </div>
+    <div class="card-body">
+        @if (Model.Position == "Doctor")
+        {
+            <h5 class="card-title text-center">Dr. @Model.FirstName @Model.LasttName</h5>
+        }
+        else
+        {
+            <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
+        }
+        <img class="card-img-top" src="@Model.Image">
+
+        <p class="card-text-custom">@Model.Autobiography</p>
+        <a href="/Employees/Team" class="btn btn-success">Go back</a>
+    </div>
+</div>

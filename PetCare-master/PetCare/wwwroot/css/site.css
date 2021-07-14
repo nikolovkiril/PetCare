@@ -121,6 +121,7 @@ footer.border-top {
     margin-top: 10px;
     margin-left: 10px;
     border-color: black;
+    backface-visibility: hidden;
 }
 .card-text-custom {
     margin-top: 30px;

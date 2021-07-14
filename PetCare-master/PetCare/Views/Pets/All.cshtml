@@ -1,0 +1,22 @@
+﻿@model List<DetailsPetFormModel>
+
+@{
+    ViewData["Title"] = "Pet`s";
+}
+
+
+<h2 class="text-center">Pet`s</h2>
+
+<div class="row">
+    @foreach (var pet in Model)
+    {
+        <div class="card text-center responsive" style="width: 16rem; ">
+                <h5 class="card-title text-center">@pet.Name</h5>
+            <img class="card-img-top" src="@pet.Image">
+            <div class="card-body">
+                <p class="card-text text-center">@pet.AnimalType</p>
+                <a href="/Pets/Details?petId=@pet.Id" class="btn btn-success">Info</a>
+            </div>
+        </div>
+    }
+</div>
