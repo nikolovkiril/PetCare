@@ -7,7 +7,9 @@
     using PetCare.Data;
     using PetCare.Data.Models.Pet;
     using PetCare.Models.Pets;
+    using Microsoft.AspNetCore.Authorization;
 
+    [Authorize]
     public class PetsController : Controller
     {
         private readonly PetCareDbContext data;
@@ -28,27 +30,19 @@
             {
                 this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options.");
             }
-
-            if (pet.AnimalId == 1)
-            {
-                this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options , N/A is not valid.");
-            }
-
+           
             if (!ModelState.IsValid)
             {
                 pet.AnimalTypes = this.GetAnimalTypes();
                 
                 return View(pet);
             }
-
-            var date = DateTime.UtcNow.Year;
-            var petAge = date - pet.BirthDate.Year;
-
+            
             var addPet = new Pet
             {
                 Name = pet.Name,
-                Age = (byte)petAge,
                 Breed = pet.Breed,
+                Gender = pet.Genger,
                 AnimalId = pet.AnimalId,
                 Description = pet.Description,
                 BirthDate = pet.BirthDate,
@@ -59,18 +53,9 @@
 
             this.data.SaveChanges();
 
-            return RedirectToAction("Details", "Pets"); 
+            return RedirectToAction(nameof(All)); 
         }
 
-        public IEnumerable<AnimalTypeViewModel> GetAnimalTypes()
-                => this.data
-                    .Animals
-                    .Select(a => new AnimalTypeViewModel
-                    {
-                        Id = a.Id,
-                        Type = a.Type
-                    })
-                    .ToList();
 
         public IActionResult All() 
         {
@@ -79,8 +64,8 @@
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Age = p.Age,
                     Breed = p.Breed,
+                    Gender = p.Gender,
                     Description = p.Description,
                     AnimalType = p.AnimalType.Type,
                     Image = p.Image
@@ -97,6 +82,13 @@
                 return Redirect("/Pets/All");
             }
 
+            var petToDisplay = this.data
+                .Pets.FirstOrDefault(p => p.Id == petId);
+
+            var date = DateTime.UtcNow.Year;
+            var petAge = date - petToDisplay.BirthDate.Year;
+
+
             var pet = this.data
                  .Pets
                  .Where(p => p.Id == petId)
@@ -105,7 +97,8 @@
                      Id = petId,
                      Name = p.Name,
                      Breed = p.Breed,
-                     Age = p.Age,
+                     Age = (byte)petAge,
+                     Gender = p.Gender,
                      Description = p.Description,
                      Image = p.Image,
                      AnimalType = p.AnimalType.Type,
@@ -114,5 +107,16 @@
 
             return View(pet);
         }
+
+        public IEnumerable<AnimalTypeViewModel> GetAnimalTypes()
+             => this.data
+                 .Animals
+                 .Select(a => new AnimalTypeViewModel
+                 {
+                     Id = a.Id,
+                     Type = a.Type
+                 })
+                 .ToList();
+
     }
 }

@@ -5,12 +5,14 @@
 }
 <div class="card text-center">
     <div class="card-header">
-        @Model.AnimalType.ToUpper() @Model.Breed
+        @Model.AnimalType.ToUpper() @Model.Breed - <kbd>@Model.Gender</kbd>
     </div>
     <div class="card-body">
         <h5 class="card-title text-center">@Model.Name is @Model.Age Years old</h5>
         <img class="card-img-top" src="@Model.Image">
         <p class="card-text-custom">@Model.Description</p>
-        <a href="/Pets/All" class="btn btn-primary">Go back</a>
+        <a asp-controller="Pets" asp-action="All" class="btn btn-primary">Go back</a>
     </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?"></script> 

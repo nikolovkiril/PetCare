@@ -126,3 +126,51 @@ footer.border-top {
 .card-text-custom {
     margin-top: 30px;
 }
+
+.jumbotron {
+    background-image: url("../Images/480.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+/*.btn {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}*/
+.btn {
+    border-radius: 12px;
+}
+
+/*.btn {
+    border-radius: 50%;
+}*/
+/*.brand kbd {
+    background-color: #59c015;
+    color: #ffffff;
+}*/
+
+
+.dropdown {
+    margin-left: 15px;
+}
+
+#dropdownMenuButton {
+    border: none;
+    background: transparent;
+    color: black;
+    font-weight: bold;
+}
+.dropdown-item {
+    font-weight: bold;
+    /*color: rgb(161 18 18);*/
+}
+.nav-link {
+    font-weight: bold;
+}

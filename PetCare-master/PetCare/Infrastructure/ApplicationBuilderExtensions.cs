@@ -47,7 +47,6 @@
 
             data.Animals.AddRange(new[]
             {
-                new AnimalType { Type = "N/A" },
                 new AnimalType { Type = "Dog" },
                 new AnimalType { Type = "Cat" },
                 new AnimalType { Type = "Parrot" },

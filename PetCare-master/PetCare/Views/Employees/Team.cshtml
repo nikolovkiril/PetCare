@@ -4,18 +4,22 @@
     ViewData["Title"] = "Our Team";
 }
 
-<h2 class="text-center">Employees</h2>
 
+
+<body class="text-center" >
+    <h3 class="text-center">MEET OUR TEAM</h3>
+    <a class="btn btn-danger heading-margin" asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
+</body>
 <div class="row">
     @foreach (var employee in Model)
     {
-        <div class="card text-center responsive" style="width: 16rem; ">
+        <figure  class="figure text-center responsive mr-auto" style="width: 16rem;">
             <img class="card-img-top" src="@employee.Image">
             <div class="card-body">
                 <h5 class="card-title text-center">@employee.FirstName  @employee.LasttName</h5>
                 <p class="card-text text-center">@employee.Position</p>
-                <a href="/Employees/Details?employeeId=@employee.Id" class="btn btn-success ">More Info</a>
+                <a asp-controller="Employees" asp-action="Details" asp-route-employeeId="@employee.Id" class="text-dark btn btn-info">More Info</a>
             </div>
-        </div>
+        </figure>
     }
 </div>

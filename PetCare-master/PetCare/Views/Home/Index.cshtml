@@ -1,1 +1,55 @@
-﻿<div class="container text-center"><h1>Wellcome</h1>    </div>
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container text-white">
+        <h1 style="color: #000000">We Provide Care,<br />That Your Pet<br />Deserves!</h1>
+        <br />
+        <h4 class="text-dark">ADOPTING</h4><h6 class="text-dark">THE RIGHT PET FOR YOUR FAMILY</h6>
+        <br />
+        <a asp-controller="Employees" asp-action="Details" class="btn btn-info text-dark btn-sm m-2" style='background: rgb(255 106 0)'>GIVE US CALL</a>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col-md-3 columns">
+        <div class="kode-service-type-1">
+            <div style="background:#4d9f17" class="kf_pet_service_wrap">
+                <i class="icon-animal614 "></i>
+                <h4>VET SERVICE</h4>
+                <p style="color:#ffffff">All kind of vet services</p>
+                <a class="brand" asp-controller="VetServices" asp-action="Details" ><kbd>Read More</kbd></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 columns">
+        <div class="kode-service-type-1">
+            <div style="background:#dc6939 " class="kf_pet_service_wrap">
+                <i class="icon-stethoscope"></i>
+                <h4>DOG WALKING</h4>
+                <p style="color:#ffffff">Fun &amp; active dog walking service</p>
+                <a class="brand" asp-controller="VetServices" asp-action="Details" asp-route-vetServiceId="8"><kbd>Read More</kbd></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 columns">
+        <div class="kode-service-type-1">
+            <div style="background:#f29100" class="kf_pet_service_wrap">
+                <i class="fa fa-paw"></i>
+                <h4>CAT FEEDING</h4>
+                <p style="color:#ffffff">Cat feeding services by cat lover</p>
+                <a class="brand" asp-controller="Employees" asp-action="Details"><kbd>Read More</kbd></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 columns">
+        <div class="kode-service-type-1">
+            <div style="background:#35aeba" class="kf_pet_service_wrap">
+                <i class="icon-hairdresser22"></i>
+                <h4>GROOMING</h4>
+                <p style="color:#ffffff">Fully qualified grooming service</p>
+                <a class="brand" asp-controller="Employees" asp-action="Details"><kbd>Read More</kbd></a>
+            </div>
+        </div>
+    </div>
+</div>

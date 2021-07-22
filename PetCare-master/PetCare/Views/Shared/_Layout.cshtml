@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style='background: rgb(224 233 229)'>
     <header class="active">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-5 font-weight-bold">
             <div class="container">
@@ -24,23 +24,45 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
+                    <ul class="navbar-nav flex-grow-1 mr-2">
                         @if (SignInManager.IsSignedIn(User))
                         {
-
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        PET
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Add">Add Pet</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="All">My Pets</a>
+                                    </div>
+                                </div>
+                            </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Add">Add Pet</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    BLOG
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Services</a>
+                                    <a class="dropdown-item" href="#">Team</a>
+                                    <a class="dropdown-item" href="#">Contact Us</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="All">Pet`s</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Add">Add</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Team">Team</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ABOUT US
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Services</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="Team">Team</a>
+                                    <a class="dropdown-item" href="#">Contact Us</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -53,8 +75,8 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted ">
-        <div class="container">
+    <footer class="border-top footer text-muted text-center">
+        <div class="container class=" text-center p-3"">
             <a>&copy; @DateTime.UtcNow.Year -Pet Care-  All rights reserved.</a>
         </div>
     </footer>

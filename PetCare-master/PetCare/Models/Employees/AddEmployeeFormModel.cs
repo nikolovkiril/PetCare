@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static PetCare.Models.DataConstants;
+    using static DataConstants.Employee;
 
     public class AddEmployeeFormModel
     {
@@ -12,12 +12,16 @@
         [StringLength(FirstNameMaxLength,
            MinimumLength = FirstNameMinLength,
            ErrorMessage = "First Name must be between '2' and '20' symbols.")]
+        [Display(Name = "First Name")]
+
         public string FirstName { get; init; }
 
         [Required]
         [StringLength(LastNameMaxLength,
            MinimumLength = LastNameMinLength,
            ErrorMessage = "Last Name must be between '2' and '35' symbols.")]
+        [Display(Name = "Last Name")]
+
         public string LastName { get; init; }
 
         [Required]
@@ -33,6 +37,8 @@
         public IEnumerable<PositionViewModel> EmployeePosition { get; set; }
 
         [Required]
+        [Display(Name = "Image Url")]
+
         public string ImageUrl { get; set; }
 
         [Required]

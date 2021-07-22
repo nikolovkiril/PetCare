@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static PetCare.Models.DataConstants;
+    using static PetCare.Models.DataConstants.Employee;
     public class Employee
     {
         public string Id { get; init; } = Guid.NewGuid().ToString();

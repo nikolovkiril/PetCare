@@ -17,11 +17,13 @@
         public EmployeesController(PetCareDbContext data)
            => this.data = data;
 
+
         public IActionResult Add()
              => View(new AddEmployeeFormModel
              {
                  EmployeePosition = this.GetEmployeeTypes()
              });
+
 
         [HttpPost]
         public IActionResult Add(AddEmployeeFormModel employee)
@@ -79,6 +81,9 @@
                     HireDate = e.HireDate.ToString("dd MMMM yy"),
                     Image = e.Image,
                 })
+                .OrderByDescending(p => p.Position.StartsWith("D"))
+                .ThenByDescending(n => n.Position.StartsWith("N"))
+                .ThenBy(e => e.FirstName)
                 .ToList();
 
             return View(employees);

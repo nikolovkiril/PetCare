@@ -1,22 +1,19 @@
 ﻿namespace PetCare.Models.Pets
 {
+    using PetCare.Data.Models.Enums;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static PetCare.Models.DataConstants;
+    using static DataConstants.Pet;
 
     public class AddPetFormModel 
     {
         [Required]
-        [StringLength(PetNameMaxLength,
-            MinimumLength = PetNameMinLength,
+        [StringLength(NameMaxLength,
+            MinimumLength = NameMinLength,
             ErrorMessage = "Name must be between '2' and '40' symbols.")]
         public string Name { get; init; }
-
-        //[Required]
-        //[Range(PetAgeMinRange,PetAgeMaxRange,ErrorMessage = "Age must be between 1 and 100.")]
-        //public byte Age { get; init; }
 
         [Display(Name = "Please select")]
         public int AnimalId { get; init; }
@@ -27,7 +24,8 @@
             ErrorMessage = "Description must be with a minimum length of '10' symbols.")]
         public string Description { get; init; }
 
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
         public DateTime BirthDate { get; init; }
 
         [Required]
@@ -35,6 +33,9 @@
             MinimumLength = BreedMinLength,
             ErrorMessage = "Breed must be between '3' and '25' symbols.")]
         public string Breed { get; init; }
+
+        [Required]
+        public  Gender Genger{ get; set; }
 
         public IEnumerable<AnimalTypeViewModel> AnimalTypes { get; set; }
 
