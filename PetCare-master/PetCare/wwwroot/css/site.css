@@ -174,3 +174,15 @@ footer.border-top {
 .nav-link {
     font-weight: bold;
 }
+.card-header-custom{
+    background-color: black;
+    color:white;
+}
+
+#truncateLongTexts {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 190px;
+    height: 2em;
+    white-space: nowrap;
+}
