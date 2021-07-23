@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@model DetailsVetServiceViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card text-center">
+    <div class="card-header-custom">
+        @Model.ServiceName.ToUpper()
+    </div>
+    <div class="card-body">
+        <img class="card-img-top" src="@Model.ImgUrl">
+
+        <p class="card-text-custom">@Model.Description</p>
+        <a asp-controller="VetServices" asp-action="All" class="btn btn-primary">Go back</a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
+            <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+        }
+    </div>
+</div>

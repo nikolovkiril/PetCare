@@ -1,4 +1,7 @@
-﻿@model List<DetailsEmployeeViewModel>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@model List<DetailsEmployeeViewModel>
 
 @{
     ViewData["Title"] = "Our Team";
@@ -6,17 +9,21 @@
 
 
 
-<body class="text-center" >
+<body class="text-center">
     <h3 class="text-center">MEET OUR TEAM</h3>
-    <a class="btn btn-danger heading-margin" asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a class="btn btn-danger " asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
+    }
 </body>
+<hr class="my-4">
 
 <div class="row">
     @foreach (var employee in Model)
     {
-        <figure  class="figure text-center responsive mr-auto" style="width: 16rem;">
+        <figure class="figure text-center responsive mr-auto col-md-4">
             <a asp-controller="Employees" asp-action="Details" asp-route-employeeId="@employee.Id">
-            <img class="card-img-top" src="@employee.Image">
+                <img class="card-img-top" src="@employee.Image">
             </a>
             <div class="card-body">
                 <h5 class="card-title text-center">@employee.FirstName  @employee.LasttName</h5>

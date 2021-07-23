@@ -116,12 +116,13 @@ footer.border-top {
     height: auto;
 }
 
-.card{
-    padding: 25px;
+.card {
+    padding: 20px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     border-color: black;
-    backface-visibility: hidden;
 }
 .card-text-custom {
     margin-top: 30px;
@@ -174,15 +175,14 @@ footer.border-top {
 .nav-link {
     font-weight: bold;
 }
-.card-header-custom{
-    background-color: black;
-    color:white;
+.card-header-custom {
+    font-weight: bold;
 }
 
 #truncateLongTexts {
-    text-overflow: ellipsis;
+    height: 10vh;
     overflow: hidden;
-    width: 190px;
-    height: 2em;
-    white-space: nowrap;
+    display: grid;
+    place-items: center;
+    background: #fff;
 }
