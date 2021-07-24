@@ -7,20 +7,16 @@
 @if (!Model.Any())
 {
     <div class="text-center">
-
         <h2 class="display-4" font-weight: bold;>Welcome</h2>
         <p class="lead">You have no pets registered</p>
         <hr class="my-4">
         <p class="lead">
         </p>
         <a asp-controller="Pets" asp-action="Add" class="btn btn-primary btn-lg" role="button">Add Pet</a>
-
     </div>
-
 }
 else
 {
-
     <h2 class="text-center">My Pets</h2>
 
     <div class="row">

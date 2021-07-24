@@ -31,7 +31,10 @@
         [Required]
         public Gender Gender { get; set; }
 
-        //public string UserId { get; set; }
+        [Required]
+        public int OwnerId { get; init; }
+
+        public Owner Owner { get; set; }
 
         [Required]
         public int AnimalId { get; set; }

@@ -8,6 +8,7 @@
     using PetCare.Data.Models.Pet;
     using PetCare.Models.Pets;
     using Microsoft.AspNetCore.Authorization;
+    using PetCare.Infrastructure;
 
     [Authorize]
     public class PetsController : Controller
@@ -17,27 +18,46 @@
         public PetsController(PetCareDbContext data)
             => this.data = data;
 
-        public IActionResult Add() 
-            => View(new AddPetFormModel 
+        public IActionResult Add()
+        {
+            return View(new AddPetFormModel
             {
-                AnimalTypes = this.GetAnimalTypes()            
+                AnimalTypes = this.GetAnimalTypes()
             });
 
+        }
         [HttpPost]
         public IActionResult Add(AddPetFormModel pet)
         {
+            
+
+            if (!this.data.Owners.Any(x => x.UserId == this.User.GetId()))
+            {
+                var owner = new Owner
+                {
+                    UserId = this.User.GetId()
+                };
+                this.data.Owners.Add(owner);
+                this.data.SaveChanges();
+            }
+
             if (!this.data.Animals.Any(c => c.Id == pet.AnimalId))
             {
                 this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options.");
             }
-           
+
             if (!ModelState.IsValid)
             {
                 pet.AnimalTypes = this.GetAnimalTypes();
-                
+
                 return View(pet);
             }
-            
+            var ownerId = this.data
+                .Owners
+                .Where(u => u.UserId == this.User.GetId())
+                .Select(u => u.Id)
+                .FirstOrDefault();
+
             var addPet = new Pet
             {
                 Name = pet.Name,
@@ -46,20 +66,22 @@
                 AnimalId = pet.AnimalId,
                 Description = pet.Description,
                 BirthDate = pet.BirthDate,
-                Image = pet.Image
+                Image = pet.Image,
+                OwnerId = ownerId
             };
 
             this.data.Pets.Add(addPet);
 
             this.data.SaveChanges();
 
-            return RedirectToAction(nameof(All)); 
+            return RedirectToAction(nameof(All));
         }
 
 
-        public IActionResult All() 
+        public IActionResult All()
         {
             var pet = this.data.Pets
+                .Where(u => u.Owner.UserId == this.User.GetId())
                 .Select(p => new DetailsPetFormModel
                 {
                     Id = p.Id,
@@ -69,7 +91,6 @@
                     Description = p.Description,
                     AnimalType = p.AnimalType.Type,
                     Image = p.Image
-                    
                 })
                 .ToList();
 
@@ -107,6 +128,9 @@
 
             return View(pet);
         }
+
+        public bool UserIsOwner()
+            => this.data.Owners.Any(x => x.UserId == this.User.GetId());
 
         public IEnumerable<AnimalTypeViewModel> GetAnimalTypes()
              => this.data

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetCare.Data;
 
 namespace PetCare.Data.Migrations
 {
     [DbContext(typeof(PetCareDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210723132937_UpdatePet")]
+    partial class UpdatePet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -290,25 +292,6 @@ namespace PetCare.Data.Migrations
                     b.ToTable("Animals");
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Pet.Owner", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("Owners");
-                });
-
             modelBuilder.Entity("PetCare.Data.Models.Pet.Pet", b =>
                 {
                     b.Property<string>("Id")
@@ -341,14 +324,9 @@ namespace PetCare.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AnimalId");
-
-                    b.HasIndex("OwnerId");
 
                     b.ToTable("Pets");
                 });
@@ -440,15 +418,6 @@ namespace PetCare.Data.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("PetCare.Data.Models.Pet.Owner", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithOne()
-                        .HasForeignKey("PetCare.Data.Models.Pet.Owner", "UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("PetCare.Data.Models.Pet.Pet", b =>
                 {
                     b.HasOne("PetCare.Data.Models.Pet.AnimalType", "AnimalType")
@@ -457,15 +426,7 @@ namespace PetCare.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PetCare.Data.Models.Pet.Owner", "Owner")
-                        .WithMany("Pets")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("AnimalType");
-
-                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("PetCare.Data.Models.Employee.Position", b =>
@@ -474,11 +435,6 @@ namespace PetCare.Data.Migrations
                 });
 
             modelBuilder.Entity("PetCare.Data.Models.Pet.AnimalType", b =>
-                {
-                    b.Navigation("Pets");
-                });
-
-            modelBuilder.Entity("PetCare.Data.Models.Pet.Owner", b =>
                 {
                     b.Navigation("Pets");
                 });
