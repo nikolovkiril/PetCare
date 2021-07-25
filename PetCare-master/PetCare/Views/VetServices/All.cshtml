@@ -8,11 +8,13 @@
 }
 
 <body class="text-center">
+    <h3>OUR LATEST SERVICES</h3>
     @if (SignInManager.IsSignedIn(User))
     {
-        <a class="btn btn-danger heading-margin" asp-area="" asp-controller="VetServices" asp-action="Add">Add new Service</a>
+        <a class="btn btn-danger" asp-area="" asp-controller="VetServices" asp-action="Add">Add new Service</a>
     }
 </body>
+<hr class="my-4">
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -22,9 +24,8 @@
             <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
                 <img class="d-block w-100" src="@vetService.ImgUrl" alt="@vetService.ServiceName">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: #000000">OUR LATEST SERVICES</h5>
                     <p style="color: #000000">
-                        We offer a variety of pets grooming services that are just right for your pet
+                        We offer a variety of pets services that are just right for your pet
                     </p>
                     <h5><a class="btn btn-primary" asp-controller="VetServices" asp-action="Details" asp-route-vetServiceId="@vetService.Id">@vetService.ServiceName</a></h5>
                 </div>
@@ -50,18 +51,18 @@
 <div class="row">
     @foreach (var vetService in Model)
     {
-    <div class="card text-center col-md-6 col-xl-4">
+        <div class="card text-center col-md-6 col-xl-4">
 
-        <div class="card-header-custom">
-            @vetService.ServiceName.ToUpper()
-        </div>
-        <div class="card-body">
-        <img class="card-img-top" src="@vetService.ImgUrl">
-        </div>
+            <div class="card-header-custom">
+                @vetService.ServiceName.ToUpper()
+            </div>
+            <div class="card-body">
+                <img class="card-img-top" src="@vetService.ImgUrl">
+            </div>
 
-        <p class="card-text-custom" id="truncateLongTexts">@vetService.Description</p>
-        <a asp-controller="VetServices" asp-action="Details" asp-route-vetServiceId="@vetService.Id" class="btn btn-primary ">LEARN MORE</a>
-    </div>
+            <p class="card-text-custom" id="truncateLongTexts">@vetService.Description</p>
+            <a asp-controller="VetServices" asp-action="Details" asp-route-vetServiceId="@vetService.Id" class="btn btn-primary ">LEARN MORE</a>
+        </div>
     }
 </div>
 

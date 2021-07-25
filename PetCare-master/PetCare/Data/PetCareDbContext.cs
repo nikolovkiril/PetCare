@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using PetCare.Data.Models.Employee;
-    using PetCare.Data.Models.Enums;
     using PetCare.Data.Models.Pet;
     using PetCare.Data.Models.VetService;
 
@@ -20,8 +19,8 @@
         public DbSet<Position> Positions { get; init; }
         public DbSet<Employee> Employees { get; init; }
         public DbSet<VetService> VetServices { get; init; }
-
         public DbSet<Owner> Owners { get; init; }
+        public DbSet<Gender> Genders { get; init; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,6 +31,12 @@
                 .HasForeignKey(a => a.AnimalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder
+                .Entity<Pet>()
+                .HasOne(g => g.GenderType)
+                .WithMany(p => p.Pets)
+                .HasForeignKey(g => g.GenderId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<Pet>()

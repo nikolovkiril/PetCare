@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+
 <body style='background: rgb(224 233 229)'>
     <header class="active">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-5 font-weight-bold">
@@ -36,6 +37,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Add">Add Pet</a>
                                         <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="All">My Pets</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Apointment">Apointment</a>
                                     </div>
                                 </div>
                             </li>
@@ -46,9 +48,8 @@
                                     ADOPT ME
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Services</a>
-                                    <a class="dropdown-item" href="#">Team</a>
-                                    <a class="dropdown-item" href="#">Contact Us</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Find</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Add</a>
                                 </div>
                             </div>
                         </li>

@@ -1,9 +1,6 @@
 ﻿namespace PetCare.Data.Models.Employee
 {
     using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static PetCare.Models.DataConstants.Employee;

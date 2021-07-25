@@ -290,6 +290,21 @@ namespace PetCare.Data.Migrations
                     b.ToTable("Animals");
                 });
 
+            modelBuilder.Entity("PetCare.Data.Models.Pet.Gender", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GenderType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genders");
+                });
+
             modelBuilder.Entity("PetCare.Data.Models.Pet.Owner", b =>
                 {
                     b.Property<int>("Id")
@@ -329,7 +344,7 @@ namespace PetCare.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Gender")
+                    b.Property<int>("GenderId")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -347,6 +362,8 @@ namespace PetCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AnimalId");
+
+                    b.HasIndex("GenderId");
 
                     b.HasIndex("OwnerId");
 
@@ -457,6 +474,12 @@ namespace PetCare.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("PetCare.Data.Models.Pet.Gender", "GenderType")
+                        .WithMany("Pets")
+                        .HasForeignKey("GenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("PetCare.Data.Models.Pet.Owner", "Owner")
                         .WithMany("Pets")
                         .HasForeignKey("OwnerId")
@@ -464,6 +487,8 @@ namespace PetCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("AnimalType");
+
+                    b.Navigation("GenderType");
 
                     b.Navigation("Owner");
                 });
@@ -474,6 +499,11 @@ namespace PetCare.Data.Migrations
                 });
 
             modelBuilder.Entity("PetCare.Data.Models.Pet.AnimalType", b =>
+                {
+                    b.Navigation("Pets");
+                });
+
+            modelBuilder.Entity("PetCare.Data.Models.Pet.Gender", b =>
                 {
                     b.Navigation("Pets");
                 });

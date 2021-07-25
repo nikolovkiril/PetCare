@@ -186,3 +186,6 @@ footer.border-top {
     place-items: center;
     background: #fff;
 }
+.emergency {
+    background-color: #57c50f;
+}

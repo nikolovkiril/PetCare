@@ -1,6 +1,5 @@
 ﻿namespace PetCare.Models.Pets
 {
-    using PetCare.Data.Models.Enums;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -15,7 +14,10 @@
             ErrorMessage = "Name must be between '2' and '40' symbols.")]
         public string Name { get; init; }
 
-        [Display(Name = "Please select")]
+        [Display(Name = "Gender")]
+        public int GenderId { get; init; }
+
+        [Display(Name = "Animal Type")]
         public int AnimalId { get; init; }
         
         [Required]
@@ -26,20 +28,24 @@
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
+        [Display(Name = "Birth Date")]
+
         public DateTime BirthDate { get; init; }
 
         [Required]
         [StringLength(BreedMaxLength,
             MinimumLength = BreedMinLength,
             ErrorMessage = "Breed must be between '3' and '25' symbols.")]
+
         public string Breed { get; init; }
 
-        [Required]
-        public  Gender Genger{ get; set; }
-
-        public IEnumerable<AnimalTypeViewModel> AnimalTypes { get; set; }
 
         [Required]
         public string Image { get; set; }
+
+        public IEnumerable<AnimalTypeViewModel> AnimalTypes { get; set; }
+        public IEnumerable<GenderTypeViewModel> GengerTypes { get; set; }
+
+       
     }
 }

@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace PetCare.Data.Migrations
+﻿namespace PetCare.Data.Migrations
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
     public partial class EmployeAndPosition : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

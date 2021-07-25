@@ -1,15 +1,9 @@
 ﻿namespace PetCare.Data.Models.Pet
 {
     using System;
-    using System.Linq;
-    using System.Globalization;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Security.Principal;
 
     using static PetCare.Models.DataConstants.Pet;
-    using PetCare.Data.Models.Enums;
 
     public class Pet 
     {
@@ -29,11 +23,11 @@
         public DateTime BirthDate { get; set; }
 
         [Required]
-        public Gender Gender { get; set; }
+        public int GenderId { get; set; }
+        public Gender GenderType { get; set; }
 
         [Required]
         public int OwnerId { get; init; }
-
         public Owner Owner { get; set; }
 
         [Required]

@@ -1,6 +1,5 @@
 ﻿namespace PetCare.Data.Models.Pet
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 

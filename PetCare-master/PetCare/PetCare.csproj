@@ -16,4 +16,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Clinics\" />
+    <Folder Include="Services\Employees\" />
+    <Folder Include="Services\VetServices\" />
+    <Folder Include="Services\Pets\" />
+  </ItemGroup>
+
 </Project>

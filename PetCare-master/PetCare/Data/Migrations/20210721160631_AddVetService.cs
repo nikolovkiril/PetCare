@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace PetCare.Data.Migrations
+﻿namespace PetCare.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddVetService : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

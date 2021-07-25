@@ -22,16 +22,15 @@
         {
             return View(new AddPetFormModel
             {
-                AnimalTypes = this.GetAnimalTypes()
+                AnimalTypes = this.GetAnimalTypes(),
+                GengerTypes = this.GetGender()
             });
 
         }
         [HttpPost]
         public IActionResult Add(AddPetFormModel pet)
         {
-            
-
-            if (!this.data.Owners.Any(x => x.UserId == this.User.GetId()))
+            if (!this.data.Owners.Any(o => o.UserId == this.User.GetId()))
             {
                 var owner = new Owner
                 {
@@ -41,14 +40,20 @@
                 this.data.SaveChanges();
             }
 
-            if (!this.data.Animals.Any(c => c.Id == pet.AnimalId))
+            if (!this.data.Animals.Any(a => a.Id == pet.AnimalId))
             {
                 this.ModelState.AddModelError(nameof(pet.AnimalId), "Plese select some of the options.");
+            }
+
+            if (!this.data.Genders.Any(a => a.Id == pet.GenderId))
+            {
+                this.ModelState.AddModelError(nameof(pet.GenderId), "Plese select some of the options.");
             }
 
             if (!ModelState.IsValid)
             {
                 pet.AnimalTypes = this.GetAnimalTypes();
+                pet.GengerTypes = this.GetGender();
 
                 return View(pet);
             }
@@ -62,7 +67,7 @@
             {
                 Name = pet.Name,
                 Breed = pet.Breed,
-                Gender = pet.Genger,
+                GenderId = pet.GenderId,
                 AnimalId = pet.AnimalId,
                 Description = pet.Description,
                 BirthDate = pet.BirthDate,
@@ -87,7 +92,7 @@
                     Id = p.Id,
                     Name = p.Name,
                     Breed = p.Breed,
-                    Gender = p.Gender,
+                    GenderType = p.GenderType.GenderType,
                     Description = p.Description,
                     AnimalType = p.AnimalType.Type,
                     Image = p.Image
@@ -119,7 +124,7 @@
                      Name = p.Name,
                      Breed = p.Breed,
                      Age = (byte)petAge,
-                     Gender = p.Gender,
+                     GenderType = p.GenderType.GenderType,
                      Description = p.Description,
                      Image = p.Image,
                      AnimalType = p.AnimalType.Type,
@@ -142,5 +147,14 @@
                  })
                  .ToList();
 
+        public IEnumerable<GenderTypeViewModel> GetGender()
+             => this.data
+                 .Genders
+                 .Select(a => new GenderTypeViewModel
+                 {
+                     Id = a.Id,
+                     Type = a.GenderType
+                 })
+                 .ToList();
     }
 }
