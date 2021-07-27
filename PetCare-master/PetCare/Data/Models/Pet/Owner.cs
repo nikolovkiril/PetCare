@@ -9,6 +9,6 @@
 
         [Required]
         public string UserId { get; init; }
-        public IEnumerable<Pet> Pets { get; init; } = new List<Pet>();
+        public IEnumerable<Pet> Pets { get; set; } = new List<Pet>();
     }
 }

@@ -48,6 +48,13 @@ using PetCare.Models.VetServices;
 #line hidden
 #nullable disable
 #nullable restore
+#line 6 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Services.Pets.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\VetServices\Details.cshtml"
 using Microsoft.AspNetCore.Identity;
 
@@ -55,7 +62,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0f3029c618e838d6189eb6d798cccaf6952a6afe", @"/Views/VetServices/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75f4794404d89e8596f48563254cf126eac99a3b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad5189bf3eb0542ee22e4702958dd8f8e69f10bb", @"/Views/_ViewImports.cshtml")]
     public class Views_VetServices_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DetailsVetServiceViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "VetServices", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -126,7 +133,7 @@ WriteAttributeValue("", 361, Model.ImgUrl, 361, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe7420", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe7605", async() => {
                 WriteLiteral("Go back");
             }
             );
@@ -154,7 +161,7 @@ WriteAttributeValue("", 361, Model.ImgUrl, 361, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe9121", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe9306", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -173,7 +180,7 @@ WriteAttributeValue("", 361, Model.ImgUrl, 361, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe10575", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f3029c618e838d6189eb6d798cccaf6952a6afe10760", async() => {
                 WriteLiteral("Delete");
             }
             );

@@ -48,6 +48,13 @@ using PetCare.Models.VetServices;
 #line hidden
 #nullable disable
 #nullable restore
+#line 6 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Services.Pets.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\VetServices\All.cshtml"
 using Microsoft.AspNetCore.Identity;
 
@@ -55,7 +62,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27ff1f44a7fecb16cd776102c40983d6ede395c8", @"/Views/VetServices/All.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75f4794404d89e8596f48563254cf126eac99a3b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad5189bf3eb0542ee22e4702958dd8f8e69f10bb", @"/Views/_ViewImports.cshtml")]
     public class Views_VetServices_All : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<AllVetServicesFormModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -102,7 +109,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c86811", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c86996", async() => {
                 WriteLiteral("\r\n    <h3>OUR LATEST SERVICES</h3>\r\n");
 #nullable restore
 #line 12 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\VetServices\All.cshtml"
@@ -113,7 +120,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c87349", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c87534", async() => {
                     WriteLiteral("Add new Service");
                 }
                 );
@@ -199,7 +206,7 @@ WriteAttributeValue("", 796, vetService.ServiceName, 796, 23, false);
                         We offer a variety of pets services that are just right for your pet
                     </p>
                     <h5>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c811933", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c812118", async() => {
 #nullable restore
 #line 30 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\VetServices\All.cshtml"
                                                                                                                                         Write(vetService.ServiceName);
@@ -300,7 +307,7 @@ WriteAttributeValue("", 2197, vetService.ImgUrl, 2197, 18, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c817105", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27ff1f44a7fecb16cd776102c40983d6ede395c817290", async() => {
                 WriteLiteral("LEARN MORE");
             }
             );

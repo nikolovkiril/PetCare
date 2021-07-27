@@ -1,11 +1,13 @@
-﻿@model DetailsPetFormModel
+﻿@model PetDetailsServiceModel
 
 @{
     ViewData["Title"] = "Details";
 }
 <div class="card text-center">
-    <div class="card-header">
-        @Model.AnimalType.ToUpper() @Model.Breed - Sex<kbd>@Model.GenderType.ToUpper()</kbd>
+    <div class="card-header font-weight-bold">
+       Type: @Model.AnimalType.ToUpper() <br />
+       Breed: @Model.Breed  <br />
+       Sex - <kbd><code>@Model.GenderType.ToUpper()</code></kbd>
     </div>
     <div class="card-body">
         <h5 class="card-title text-center">@Model.Name is @Model.Age Years old</h5>

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using PetCare.Services.Pets.Models;
 
     using static DataConstants.Pet;
 
@@ -39,12 +40,11 @@
 
         public string Breed { get; init; }
 
-
         [Required]
         public string Image { get; set; }
 
-        public IEnumerable<AnimalTypeViewModel> AnimalTypes { get; set; }
-        public IEnumerable<GenderTypeViewModel> GengerTypes { get; set; }
+        public IEnumerable<AnimalTypeServiceModel> AnimalTypes { get; set; }
+        public IEnumerable<GenderTypeServiceModel> GengerTypes { get; set; }
 
        
     }

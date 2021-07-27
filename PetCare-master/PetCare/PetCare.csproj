@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.7" />
@@ -19,8 +20,8 @@
   <ItemGroup>
     <Folder Include="Models\Clinics\" />
     <Folder Include="Services\Employees\" />
+    <Folder Include="Services\City\" />
     <Folder Include="Services\VetServices\" />
-    <Folder Include="Services\Pets\" />
   </ItemGroup>
 
 </Project>

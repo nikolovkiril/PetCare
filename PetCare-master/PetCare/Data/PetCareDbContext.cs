@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using PetCare.Data.Models.Clinic;
     using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
     using PetCare.Data.Models.VetService;
@@ -21,6 +22,9 @@
         public DbSet<VetService> VetServices { get; init; }
         public DbSet<Owner> Owners { get; init; }
         public DbSet<Gender> Genders { get; init; }
+        public DbSet<City> Cities { get; init; }
+        public DbSet<Clinic> Clinics { get; init; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -59,6 +63,12 @@
                 .HasForeignKey(p => p.PositionId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder
+               .Entity<Clinic>()
+               .HasOne(p => p.City)
+               .WithMany(e => e.Clinics)
+               .HasForeignKey(p => p.CityId)
+               .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);
         }

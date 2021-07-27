@@ -3,12 +3,14 @@ namespace PetCare
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using PetCare.Data;
     using PetCare.Infrastructure;
+    using PetCare.Services.Pets;
 
     public class Startup
     {
@@ -26,6 +28,8 @@ namespace PetCare
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddAutoMapper(typeof(Startup));
+
             services
                 .AddDefaultIdentity<IdentityUser>(options =>
                 {
@@ -36,8 +40,12 @@ namespace PetCare
                 })
                 .AddEntityFrameworkStores<PetCareDbContext>();
 
-            services
-                .AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+            });
+
+            services.AddTransient<IPetService, PetService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

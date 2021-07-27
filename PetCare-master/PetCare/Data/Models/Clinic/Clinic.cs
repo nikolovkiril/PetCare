@@ -15,19 +15,15 @@
         public string Name { get; set; }
 
         [Required]
-        public int AddresId { get; set; }
-        public Address Address { get; set; }
+        [MaxLength(StreetMaxLength)]
+        public string Street { get; set; }
 
         [Required]
         public int CityId { get; set; }
         public City City { get; set; }
 
-
         [Required]
         [MaxLength(PhoneNumberMaxLength)]
         public string PhoneNumber { get; set; }
-
-        public IEnumerable<City> Cities { get; set; } = new List<City>();
-        public IEnumerable<Address> Addresses { get; set; } = new List<Address>();
     }
 }

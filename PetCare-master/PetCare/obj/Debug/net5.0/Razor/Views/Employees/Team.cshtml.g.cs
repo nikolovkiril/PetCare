@@ -48,6 +48,13 @@ using PetCare.Models.VetServices;
 #line hidden
 #nullable disable
 #nullable restore
+#line 6 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Services.Pets.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\Employees\Team.cshtml"
 using Microsoft.AspNetCore.Identity;
 
@@ -55,7 +62,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fbb5c206735bb7bcc477906c7e4c9c4b31b68b30", @"/Views/Employees/Team.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75f4794404d89e8596f48563254cf126eac99a3b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad5189bf3eb0542ee22e4702958dd8f8e69f10bb", @"/Views/_ViewImports.cshtml")]
     public class Views_Employees_Team : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<DetailsEmployeeViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-danger "), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +107,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b306106", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b306291", async() => {
                 WriteLiteral("\r\n    <h3>MEET OUR TEAM</h3>\r\n");
 #nullable restore
 #line 14 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\Employees\Team.cshtml"
@@ -111,7 +118,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b306637", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b306822", async() => {
                     WriteLiteral("Add new Employee");
                 }
                 );
@@ -161,7 +168,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("        <figure class=\"figure text-center responsive mr-auto col-md-4\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b309690", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb5c206735bb7bcc477906c7e4c9c4b31b68b309875", async() => {
                 WriteLiteral("\r\n                <img class=\"card-img-top\"");
                 BeginWriteAttribute("src", " src=\"", 716, "\"", 737, 1);
 #nullable restore

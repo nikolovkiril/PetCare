@@ -79,5 +79,22 @@
 
             data.SaveChanges();
         }
+
+        private static void SeedCity(PetCareDbContext data)
+        {
+            //if (data.City.Any())
+            //{
+            //    return;
+            //}
+
+            //data.City.AddRange(new[]
+            //{
+            //    new City { Name = "Sofia"},
+            //    new City { Name = "Plovdiv"},
+            //    new City { Name = "Varna"},
+            //});
+
+            //data.SaveChanges();
+        }
     }
 }

@@ -444,3 +444,5 @@ D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.dll
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\ref\PetCare.dll
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.pdb
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.genruntimeconfig.cache
+D:\Code C#\PetCare\PetCare-master\PetCare\bin\Debug\net5.0\AutoMapper.dll
+D:\Code C#\PetCare\PetCare-master\PetCare\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

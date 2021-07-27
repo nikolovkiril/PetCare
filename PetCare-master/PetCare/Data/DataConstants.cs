@@ -49,19 +49,15 @@
 
             public const int PhoneNumberMinLength = 10;
             public const int PhoneNumberMaxLength = 25;
-        }
-
-        public class Address
-        {
-            public const int CityMinLength = 3;
-            public const int CityMaxLength = 30;
 
             public const int StreetMinLength = 10;
             public const int StreetMaxLength = 25;
-            
-            public const byte PostCodeMinLength = 4;
-            public const byte PostCodeMaxLength = 8;
+        }
 
+        public class City
+        {
+            public const int CityMinLength = 3;
+            public const int CityMaxLength = 30;
         }
     }
 }
