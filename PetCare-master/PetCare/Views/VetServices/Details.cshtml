@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
 
 @model DetailsVetServiceViewModel
 
@@ -7,8 +9,8 @@
     ViewData["Title"] = "Details";
 }
 
-<div class="card text-center">
-    <div class="card-header-custom">
+<div class="card text-center responsive col-md-6 col-xl-4">
+    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
         @Model.ServiceName.ToUpper()
     </div>
     <div class="card-body">
@@ -18,8 +20,13 @@
         <a asp-controller="VetServices" asp-action="All" class="btn btn-primary">Go back</a>
         @if (SignInManager.IsSignedIn(User))
         {
-            <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
-            <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+            var userIsAdmin = User.IsAdmin();
+
+            @if (userIsAdmin)
+            {
+                <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
+                <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+            }
         }
     </div>
 </div>

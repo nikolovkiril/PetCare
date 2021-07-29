@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,15 +32,24 @@
                     <ul class="navbar-nav flex-grow-1 mr-2">
                         @if (SignInManager.IsSignedIn(User))
                         {
+                            var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
+
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         PET
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Add">Add Pet</a>
-                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="All">My Pets</a>
-                                        <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Apointment">Apointment</a>
+                                        @if (!userIsAdmin)
+                                        {
+                                            <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Add">Add Pet</a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="All">My Pets</a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Apointment">Apointment</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="All">All Pets</a>
+                                        }
                                     </div>
                                 </div>
                             </li>
@@ -78,7 +90,7 @@
     </div>
     <footer class="border-top footer text-muted text-center">
         <div class="container class=" text-center p-3"">
-            <a>&copy; @DateTime.UtcNow.Year -Pet Care-  All rights reserved.</a>
+            <a class="font-weight-bold" style="color: #716d6d">&copy; @DateTime.UtcNow.Year -Pet Care-  All rights reserved.</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

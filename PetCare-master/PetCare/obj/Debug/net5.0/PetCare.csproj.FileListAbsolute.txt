@@ -446,3 +446,8 @@ D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.pdb
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\PetCare.genruntimeconfig.cache
 D:\Code C#\PetCare\PetCare-master\PetCare\bin\Debug\net5.0\AutoMapper.dll
 D:\Code C#\PetCare\PetCare-master\PetCare\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\Edit.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\_PetFormPartial.cshtml.g.cs

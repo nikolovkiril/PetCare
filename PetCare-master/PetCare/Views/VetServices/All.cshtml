@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
 
 @model List<AllVetServicesFormModel>
 
@@ -11,7 +13,12 @@
     <h3>OUR LATEST SERVICES</h3>
     @if (SignInManager.IsSignedIn(User))
     {
-        <a class="btn btn-danger" asp-area="" asp-controller="VetServices" asp-action="Add">Add new Service</a>
+        var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
+
+        if (userIsAdmin)
+        {
+            <a class="btn btn-danger" asp-area="" asp-controller="VetServices" asp-action="Add">Add new Service</a>
+        }
     }
 </body>
 <hr class="my-4">

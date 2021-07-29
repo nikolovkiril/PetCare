@@ -3,19 +3,19 @@
 @{
     ViewData["Title"] = "Details";
 }
-<div class="card text-center">
-    <div class="card-header font-weight-bold">
-       Type: @Model.AnimalType.ToUpper() <br />
+<div class="card text-center responsive col-md-6 col-xl-4" style="background-color: #a06f5a" >
+    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
+       @Model.Animal.ToUpper() <br />
        Breed: @Model.Breed  <br />
-       Sex - <kbd><code>@Model.GenderType.ToUpper()</code></kbd>
+       Sex:  <kbd><code>@Model.GenderType.ToUpper()</code></kbd>
     </div>
-    <div class="card-body">
+    <div class="card-body text-white">
         <h5 class="card-title text-center">@Model.Name is @Model.Age Years old</h5>
         <img class="card-img-top" src="@Model.Image">
         <p class="card-text-custom">@Model.Description</p>
         <a asp-controller="Pets" asp-action="All" class="btn btn-primary">Go back</a>
-        <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
-        <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+        <a asp-controller="Pets" asp-action="Edit" asp-route-petId="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-controller="Pets" asp-action="Delete" asp-route-petId="@Model.Id" class="btn btn-danger">Delete</a>
     </div>
 </div>
 

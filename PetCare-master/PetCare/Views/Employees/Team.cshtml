@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
 
 @model List<DetailsEmployeeViewModel>
 
@@ -7,16 +9,20 @@
     ViewData["Title"] = "Our Team";
 }
 
+<div class="text-center">
 
-
-<body class="text-center">
-    <h3>MEET OUR TEAM</h3>
+    <h3 >MEET OUR TEAM</h3>
     @if (SignInManager.IsSignedIn(User))
     {
-        <a class="btn btn-danger " asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
+        var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
+
+        if (userIsAdmin)
+        {
+            <a class="btn btn-danger " asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
+        }
     }
-</body>
-<hr class="my-4">
+    <hr class="my-4">
+</div>
 
 <div class="row">
     @foreach (var employee in Model)

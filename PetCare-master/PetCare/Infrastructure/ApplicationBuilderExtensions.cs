@@ -1,33 +1,48 @@
 ﻿namespace PetCare.Infrastructure
 {
+    using System;
     using System.Linq;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using PetCare.Data;
     using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
+    using PetCare.Data.Models.User;
+
+    using static WebConstants;
 
     public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder PrepareDatabase(
               this IApplicationBuilder app)
         {
-            using var scopedServices = app.ApplicationServices.CreateScope();
+            using var serviceScope = app.ApplicationServices.CreateScope();
+            var services = serviceScope.ServiceProvider;
 
-            var data = scopedServices.ServiceProvider.GetService<PetCareDbContext>();
+            MigrateDatabese(services);
 
-            data.Database.Migrate();
-
-            SeedCategories(data);
-            SeedPositions(data);
-            SeedGenders(data);
+            SeedCategories(services);
+            SeedPositions(services);
+            SeedGenders(services);
+            SeedAdministrator(services);
 
             return app;
         }
 
-        private static void SeedCategories(PetCareDbContext data)
+        private static void MigrateDatabese(IServiceProvider services)
         {
+            var data = services.GetRequiredService<PetCareDbContext>();
+
+            data.Database.Migrate();
+        }
+
+        private static void SeedCategories(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<PetCareDbContext>();
+
             if (data.Animals.Any())
             {
                 return;
@@ -35,20 +50,22 @@
 
             data.Animals.AddRange(new[]
             {
-                new AnimalType { Type = "Dog" },
-                new AnimalType { Type = "Cat" },
-                new AnimalType { Type = "Parrot" },
-                new AnimalType { Type = "Rabit" },
-                new AnimalType { Type = "Horse" },
-                new AnimalType { Type = "Cow" },
-                new AnimalType { Type = "Snake" },
+                new Animal { AnimalType = "Dog" },
+                new Animal { AnimalType = "Cat" },
+                new Animal { AnimalType = "Parrot" },
+                new Animal { AnimalType = "Rabit" },
+                new Animal { AnimalType = "Horse" },
+                new Animal { AnimalType = "Cow" },
+                new Animal { AnimalType = "Snake" },
             });
 
             data.SaveChanges();
         }
 
-        private static void SeedPositions(PetCareDbContext data)
+        private static void SeedPositions(IServiceProvider services)
         {
+            var data = services.GetRequiredService<PetCareDbContext>();
+
             if (data.Positions.Any())
             {
                 return;
@@ -64,8 +81,10 @@
             data.SaveChanges();
         }
 
-        private static void SeedGenders(PetCareDbContext data)
+        private static void SeedGenders(IServiceProvider services)
         {
+            var data = services.GetRequiredService<PetCareDbContext>();
+
             if (data.Genders.Any())
             {
                 return;
@@ -80,8 +99,10 @@
             data.SaveChanges();
         }
 
-        private static void SeedCity(PetCareDbContext data)
+        private static void SeedCity(IServiceProvider services)
         {
+            var data = services.GetRequiredService<PetCareDbContext>();
+
             //if (data.City.Any())
             //{
             //    return;
@@ -95,6 +116,41 @@
             //});
 
             //data.SaveChanges();
+        }
+
+        private static void SeedAdministrator(IServiceProvider services)
+        {
+            var userManager = services.GetRequiredService<UserManager<User>>();
+            var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+            Task
+                .Run(async () =>
+                {
+                    if (await roleManager.RoleExistsAsync(AdministartorRoleName))
+                    {
+                        return;
+                    }
+
+                    var role = new IdentityRole { Name = AdministartorRoleName };
+
+                    await roleManager.CreateAsync(role);
+
+                    const string adminEmail = "admin@petcare.com";
+                    const string adminPassword = "admin@petcare.com";
+
+                    var user = new User
+                    {
+                        Email = adminEmail,
+                        UserName = adminEmail,
+                        NickName = "Admin"
+                    };
+
+                    await userManager.CreateAsync(user, adminPassword);
+
+                    await userManager.AddToRoleAsync(user, role.Name);
+                })
+                .GetAwaiter()
+                .GetResult();
         }
     }
 }

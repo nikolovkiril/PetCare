@@ -1,21 +1,21 @@
 ﻿namespace PetCare.Data
 {
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using PetCare.Data.Models.Clinic;
     using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
+    using PetCare.Data.Models.User;
     using PetCare.Data.Models.VetService;
 
-    public class PetCareDbContext : IdentityDbContext
+    public class PetCareDbContext : IdentityDbContext<User>
     {
         public PetCareDbContext(DbContextOptions<PetCareDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<AnimalType> Animals { get; init; }
+        public DbSet<Animal> Animals { get; init; }
         public DbSet<Pet> Pets { get; init; }
         public DbSet<Position> Positions { get; init; }
         public DbSet<Employee> Employees { get; init; }
@@ -30,7 +30,7 @@
         {
             builder
                 .Entity<Pet>()
-                .HasOne(a => a.AnimalType)
+                .HasOne(a => a.Animal)
                 .WithMany(p => p.Pets)
                 .HasForeignKey(a => a.AnimalId)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -51,7 +51,7 @@
 
             builder
                 .Entity<Owner>()
-                .HasOne<IdentityUser>()
+                .HasOne<User>()
                 .WithOne()
                 .HasForeignKey<Owner>(o => o.UserId)
                 .OnDelete(DeleteBehavior.Restrict);

@@ -1,6 +1,7 @@
 ﻿namespace PetCare.Controllers
 {
     using System.Linq;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using PetCare.Data;
     using PetCare.Data.Models.VetService;
@@ -14,10 +15,13 @@
            => this.data = data;
 
 
-
+        [Authorize(Roles = "Administrator")]
         public IActionResult Add() 
             => View();
+
+
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Add(AddVetService vetService) 
         {
             if (!ModelState.IsValid)

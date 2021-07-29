@@ -2,20 +2,24 @@
 {
     public class DataConstants
     {
+        public class User
+        {
+            public const int NickNameMinLenght = 2;
+            public const int NickNameMaxLenght = 25;
+            public const int PasswordMinLenght = 6;
+            public const int PasswordMaxLenght = 100;
+        }
         public class Pet
         {
             public const int NameMinLength = 2;
-
             public const int NameMaxLength = 40;
 
             public const int AgeMinRange = 1;
-
             public const int AgeMaxRange = 100;
 
             public const int DescriptionMinLength = 10;
 
             public const int BreedMinLength = 3;
-
             public const int BreedMaxLength = 25;
         }
 

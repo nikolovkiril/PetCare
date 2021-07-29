@@ -32,7 +32,7 @@
 
         [Required]
         public int AnimalId { get; set; }
-        public AnimalType AnimalType { get; set; }
+        public Animal Animal { get; set; }
 
         [Url]
         [Required]

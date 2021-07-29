@@ -1,13 +1,9 @@
 ﻿namespace PetCare.Controllers
 {
+    using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using PetCare.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     public class HomeController : Controller
     {

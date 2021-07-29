@@ -9,7 +9,9 @@ namespace PetCare
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using PetCare.Data;
+    using PetCare.Data.Models.User;
     using PetCare.Infrastructure;
+    using PetCare.Services.Owner;
     using PetCare.Services.Pets;
 
     public class Startup
@@ -31,13 +33,14 @@ namespace PetCare
             services.AddAutoMapper(typeof(Startup));
 
             services
-                .AddDefaultIdentity<IdentityUser>(options =>
+                .AddDefaultIdentity<User>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<PetCareDbContext>();
 
             services.AddControllersWithViews(options =>
@@ -46,6 +49,7 @@ namespace PetCare
             });
 
             services.AddTransient<IPetService, PetService>();
+            services.AddTransient<IOwnerService, OwnerService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

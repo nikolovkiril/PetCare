@@ -2,13 +2,12 @@
 {
     using System;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
     using PetCare.Data;
     using PetCare.Models.Employees;
     using PetCare.Data.Models.Employee;
-    using System.IO;
 
     public class EmployeesController : Controller
     {
@@ -17,6 +16,7 @@
         public EmployeesController(PetCareDbContext data)
            => this.data = data;
 
+        [Authorize]
 
         public IActionResult Add()
              => View(new AddEmployeeFormModel
@@ -26,6 +26,7 @@
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddEmployeeFormModel employee)
         {
             if (!this.data.Positions.Any(p => p.Id == employee.PositionId))
@@ -67,6 +68,7 @@
                        EmployeePosition = e.EmployeePosition
                     })
                     .ToList();
+
         public IActionResult Team()
         {
             var employees = this.data
@@ -101,7 +103,6 @@
                  .Where(e => e.Id == employeeId)
                  .Select(e => new DetailsEmployeeViewModel
                  {
-                     
                      Id = employeeId,
                      FirstName = e.FirstName,
                      LasttName = e.LastName,

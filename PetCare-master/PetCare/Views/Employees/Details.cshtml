@@ -1,26 +1,38 @@
-﻿@model DetailsEmployeeViewModel
+﻿@using Microsoft.AspNetCore.Identity
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@model DetailsEmployeeViewModel
+
 
 @{
     ViewData["Title"] = "Details";
 }
-<div class="card text-center">
-    <div class="card-header ">
+
+
+<div class="card text-center responsive col-md-6 col-xl-4" style="background-color: #a06f5a">
+    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
         @Model.Position.ToUpper()
     </div>
-    <div class="card-body">
-        @if (Model.Position == "Doctor")
-        {
-            <h5 class="card-title text-center">Dr. @Model.FirstName @Model.LasttName</h5>
-        }
-        else
-        {
-            <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
-        }
+    <div class="card-body text-white">
+        <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
+        <hr class="my-1">
+
         <img class="card-img-top" src="@Model.Image">
 
         <p class="card-text-custom">@Model.Autobiography</p>
         <a asp-controller="Employees" asp-action="Team" class="btn btn-primary">Go back</a>
-        <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
-        <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var userIsAdmin = User.IsAdmin();
+
+            @if (userIsAdmin)
+            {
+                <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
+                <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+            }
+        }
     </div>
 </div>
