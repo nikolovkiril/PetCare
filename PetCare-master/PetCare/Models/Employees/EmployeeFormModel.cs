@@ -3,10 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using PetCare.Services.Employees.Models;
 
     using static DataConstants.Employee;
 
-    public class AddEmployeeFormModel
+    public class EmployeeFormModel
     {
         [Required]
         [StringLength(FirstNameMaxLength,
@@ -28,13 +29,15 @@
         [Range(AgeMinRange, AgeMaxRange, ErrorMessage = "Age must be between 16 and 99.")]
         public byte Age { get; init; }
 
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
+        [Display(Name = "Hire Date")]
         public DateTime HireDate { get; init; } 
 
         [Display(Name = "Please select")]
         [Required]
         public int PositionId { get; init; }
-
-        public IEnumerable<PositionViewModel> EmployeePosition { get; set; }
 
         [Required]
         [Display(Name = "Image Url")]
@@ -44,5 +47,8 @@
         [Required]
         [MinLength(AutobiographyMinLength, ErrorMessage = "The Autobiography field is required , min 10 symbols.")]
         public string Autobiography { get; set; }
+
+        public IEnumerable<PositionTypeServiceModel> EmployeePosition { get; set; }
+
     }
 }

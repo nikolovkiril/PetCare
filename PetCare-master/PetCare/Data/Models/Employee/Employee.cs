@@ -10,18 +10,18 @@
 
         [Required]
         [MaxLength(FirstNameMaxLength)]
-        public string FirstName { get; init; }
+        public string FirstName { get; set; }
 
         [Required]
         [MaxLength(LastNameMaxLength)]
-        public string LastName { get; init; }
+        public string LastName { get; set; }
 
         [Required]
         [Range(AgeMinRange, AgeMaxRange)]
-        public byte Age { get; init; }
+        public byte Age { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime HireDate { get; init; }
+        public DateTime HireDate { get; set; }
 
         [Required]
         public int PositionId { get; set; }

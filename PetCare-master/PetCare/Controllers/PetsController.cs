@@ -1,12 +1,12 @@
 ﻿namespace PetCare.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using PetCare.Models.Pets;
-    using Microsoft.AspNetCore.Authorization;
-    using PetCare.Infrastructure;
-    using PetCare.Services.Pets;
-    using PetCare.Services.Owner;
     using System;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
+    using PetCare.Models.Pets;
+    using PetCare.Services.Pets;
+    using PetCare.Infrastructure;
+    using PetCare.Services.Owner;
 
     [Authorize]
     public class PetsController : Controller
@@ -78,12 +78,14 @@
         public IActionResult All()
         {
             var userId = this.User.GetId();
+
             if (User.IsAdmin())
             {
                 var pets = this.petService.All(User.IsAdmin());
 
                 return View(pets);
             }
+
             var pet = this.petService.All(userId);
 
             return View(pet);
@@ -112,6 +114,8 @@
                 Name = pet.Name,
                 Breed = pet.Breed,
                 Description = pet.Description,
+                GenderId = pet.GenderId,
+                AnimalId = pet.AnimalId,
                 GengerTypes = this.petService.GetGender(),
                 AnimalTypes = this.petService.GetAnimalTypes(),
                 BirthDate = DateTime.UtcNow,

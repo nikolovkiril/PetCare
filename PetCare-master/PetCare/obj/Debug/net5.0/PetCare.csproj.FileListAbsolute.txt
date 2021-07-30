@@ -451,3 +451,5 @@ D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Identity\
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\Edit.cshtml.g.cs
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Pets\_PetFormPartial.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Employees\Edit.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Employees\_EmployeeFormPartial.cshtml.g.cs

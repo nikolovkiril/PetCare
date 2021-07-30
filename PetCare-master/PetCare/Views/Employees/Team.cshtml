@@ -1,9 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using PetCare.Data.Models.User
 
 @inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
-@model List<DetailsEmployeeViewModel>
+@model List<EmployeeDetailsServiceModel>
 
 @{
     ViewData["Title"] = "Our Team";
@@ -11,7 +11,7 @@
 
 <div class="text-center">
 
-    <h3 >MEET OUR TEAM</h3>
+    <h3>MEET OUR TEAM</h3>
     @if (SignInManager.IsSignedIn(User))
     {
         var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);

@@ -1,10 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using PetCare.Data.Models.User
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-@model DetailsEmployeeViewModel
+@model EmployeeDetailsServiceModel
 
 
 @{
@@ -16,8 +15,22 @@
     <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
         @Model.Position.ToUpper()
     </div>
+
     <div class="card-body text-white">
         <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var userIsAdmin = User.IsAdmin();
+
+            @if (userIsAdmin)
+            {
+                <div class="card-header" style="background-color: #605d5d">
+                    Hire Date: @Model.HireDate
+                </div>
+            }
+        }
+
         <hr class="my-1">
 
         <img class="card-img-top" src="@Model.Image">
@@ -30,7 +43,7 @@
 
             @if (userIsAdmin)
             {
-                <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
+                <a asp-controller="Employees" asp-action="Edit" asp-route-employeeId="@Model.Id" class="btn btn-warning">Edit</a>
                 <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
             }
         }

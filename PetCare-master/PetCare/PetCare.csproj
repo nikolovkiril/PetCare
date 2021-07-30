@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Clinics\" />
-    <Folder Include="Services\Employees\" />
     <Folder Include="Services\City\" />
     <Folder Include="Services\VetServices\" />
   </ItemGroup>

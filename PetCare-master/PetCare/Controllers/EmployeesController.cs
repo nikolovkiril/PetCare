@@ -1,120 +1,120 @@
 ﻿namespace PetCare.Controllers
 {
-    using System;
-    using System.Linq;
-    using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
-    using PetCare.Data;
     using PetCare.Models.Employees;
-    using PetCare.Data.Models.Employee;
+    using PetCare.Services.Employees;
 
     public class EmployeesController : Controller
     {
-        private readonly PetCareDbContext data;
+        private readonly IEmployeeService employeeService;
 
-        public EmployeesController(PetCareDbContext data)
-           => this.data = data;
+        public EmployeesController(IEmployeeService employeeService)
+           => this.employeeService = employeeService;
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
 
         public IActionResult Add()
-             => View(new AddEmployeeFormModel
+             => View(new EmployeeFormModel
              {
-                 EmployeePosition = this.GetEmployeeTypes()
+                 EmployeePosition = this.employeeService.GetEmployeeTypes()
              });
 
 
         [HttpPost]
-        [Authorize]
-        public IActionResult Add(AddEmployeeFormModel employee)
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Add(EmployeeFormModel employee)
         {
-            if (!this.data.Positions.Any(p => p.Id == employee.PositionId))
+            if (!this.employeeService.IsPositionExist(employee.PositionId))
             {
                 this.ModelState.AddModelError(nameof(employee.PositionId), "Plese select some of the options.");
             }
 
             if (!ModelState.IsValid)
             {
-                employee.EmployeePosition = this.GetEmployeeTypes();
+                employee.EmployeePosition = this.employeeService.GetEmployeeTypes();
 
                 return View(employee);
             }
 
-            var addEmployee = new Employee
-            {
-                FirstName = employee.FirstName,
-                LastName = employee.LastName,
-                Age = employee.Age,
-                HireDate = DateTime.UtcNow,
-                PositionId = employee.PositionId,
-                Image = employee.ImageUrl,
-                Autobiography = employee.Autobiography
-            };
-
-            this.data.Employees.Add(addEmployee);
-
-            this.data.SaveChanges();
+            this.employeeService.CreateEmployee(
+                employee.FirstName,
+                employee.LastName,
+                employee.Age,
+                employee.HireDate,
+                employee.PositionId,
+                employee.Autobiography,
+                employee.ImageUrl);
 
             return RedirectToAction("Team", "Employees");
         }
 
-        public IEnumerable<PositionViewModel> GetEmployeeTypes()
-                => this.data
-                    .Positions
-                    .Select(e => new PositionViewModel
-                    {
-                       Id = e.Id,
-                       EmployeePosition = e.EmployeePosition
-                    })
-                    .ToList();
-
         public IActionResult Team()
         {
-            var employees = this.data
-                .Employees
-                .Select(e => new DetailsEmployeeViewModel   
-                {
-                    Id = e.Id,
-                    FirstName = e.FirstName,
-                    LasttName = e.LastName,
-                    Age = e.Age,
-                    Position = e.Position.EmployeePosition,
-                    HireDate = e.HireDate.ToString("dd MMMM yy"),
-                    Image = e.Image,
-                })
-                .OrderByDescending(p => p.Position.StartsWith("D"))
-                .ThenByDescending(n => n.Position.StartsWith("N"))
-                .ThenBy(e => e.FirstName)
-                .ToList();
+            var employees = this.employeeService.All();
 
             return View(employees);
         }
 
         public IActionResult Details(string employeeId)
         {
-            if (!this.data.Employees.Any(t => t.Id == employeeId))
+            if (!this.employeeService.IsEmployeeExist(employeeId))
             {
                 return Redirect("/Employees/Team");
             }
 
-            var employee = this.data
-                 .Employees
-                 .Where(e => e.Id == employeeId)
-                 .Select(e => new DetailsEmployeeViewModel
-                 {
-                     Id = employeeId,
-                     FirstName = e.FirstName,
-                     LasttName = e.LastName,
-                     Age = e.Age,
-                     HireDate = e.HireDate.ToString("dd MMMM yy"),
-                     Image = e.Image,
-                     Position = e.Position.EmployeePosition,
-                     Autobiography = e.Autobiography
-                 })
-                 .FirstOrDefault();
+            var employee = this.employeeService.Details(employeeId);
 
             return View(employee);
+        }
+
+        public IActionResult Edit(string employeeId)
+        {
+            var employee = this.employeeService.Details(employeeId);
+
+            return View(new EmployeeFormModel
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LasttName,
+                Age = employee.Age,
+                PositionId = employee.PositionId,
+                Autobiography = employee.Autobiography,
+                EmployeePosition = this.employeeService.GetEmployeeTypes(),
+                ImageUrl = employee.Image
+            });
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(string employeeId, EmployeeFormModel employee)
+        {
+            if (!this.employeeService.IsPositionExist(employee.PositionId))
+            {
+                this.ModelState.AddModelError(nameof(employee.PositionId), "Plese select some of the options.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                employee.EmployeePosition = this.employeeService.GetEmployeeTypes();
+
+                return View(employee);
+            }
+
+            var employeeIsEdited = this.employeeService.Edit(
+                employeeId,
+                employee.FirstName,
+                employee.LastName,
+                employee.PositionId,
+                employee.Age,
+                employee.Autobiography,
+                employee.ImageUrl);
+
+            if (!employeeIsEdited)
+            {
+                return BadRequest();
+            }
+
+            return RedirectToAction(nameof(Team));
         }
     }
 }

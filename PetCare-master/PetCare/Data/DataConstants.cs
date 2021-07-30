@@ -17,7 +17,7 @@
             public const int AgeMinRange = 1;
             public const int AgeMaxRange = 100;
 
-            public const int DescriptionMinLength = 10;
+            public const int DescriptionMinLength = 5;
 
             public const int BreedMinLength = 3;
             public const int BreedMaxLength = 25;

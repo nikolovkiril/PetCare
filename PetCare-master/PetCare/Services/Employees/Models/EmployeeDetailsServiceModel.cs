@@ -1,13 +1,14 @@
-﻿namespace PetCare.Models.Employees
+﻿namespace PetCare.Services.Employees.Models
 {
-    public class DetailsEmployeeViewModel
+    public class EmployeeDetailsServiceModel
     {
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LasttName { get; set; }
         public byte Age { get; set; }
+        public string HireDate { get; set; }
+        public int PositionId { get; set; }
         public string Position { get; set; }
-        public string HireDate { get; init; }
         public string Image { get; set; }
         public string Autobiography { get; set; }
     }
