@@ -3,8 +3,12 @@
     using AutoMapper;
     using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
-    using PetCare.Services.Employees.Models;
-    using PetCare.Services.Pets.Models;
+    using PetCare.Data.Models.VetService;
+    using PetCare.Services.VetService.Models;
+    using PetCare.Services.Employee.Models;
+    using PetCare.Services.Pet.Models;
+    using PetCare.Services.Clinics.Models;
+    using PetCare.Data.Models.Clinic;
 
     public class MappingProfile : Profile
     {
@@ -24,7 +28,12 @@
 
             this.CreateMap<Position, PositionTypeServiceModel>();
 
+            //VetServices
+            this.CreateMap<VetService, AllVetServiceServiceModel>(); 
+            this.CreateMap<VetService, VetServiceDetailsServiceModel>();
 
+            //Clinic
+            this.CreateMap<City, CityNameServiceModel>();
         }
     }
 }

@@ -51,11 +51,11 @@
             public const int NameMinLength = 3;
             public const int NameMaxLength = 30;
 
-            public const int PhoneNumberMinLength = 10;
+            public const int PhoneNumberMinLength = 8;
             public const int PhoneNumberMaxLength = 25;
 
             public const int StreetMinLength = 10;
-            public const int StreetMaxLength = 25;
+            public const int StreetMaxLength = 50;
         }
 
         public class City

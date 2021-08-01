@@ -1,9 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using PetCare.Data.Models.User
-
-@inject SignInManager<User> SignInManager
-
-@model DetailsVetServiceViewModel
+﻿@model VetServiceDetailsServiceModel
 
 @{
     ViewData["Title"] = "Details";
@@ -17,16 +12,7 @@
         <img class="card-img-top" src="@Model.ImgUrl">
 
         <p class="card-text-custom">@Model.Description</p>
-        <a asp-controller="VetServices" asp-action="All" class="btn btn-primary">Go back</a>
-        @if (SignInManager.IsSignedIn(User))
-        {
-            var userIsAdmin = User.IsAdmin();
 
-            @if (userIsAdmin)
-            {
-                <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
-                <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
-            }
-        }
+        <a asp-controller="VetServices" asp-action="All" class="btn btn-primary">Go back</a>
     </div>
 </div>

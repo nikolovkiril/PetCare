@@ -49,34 +49,55 @@ using PetCare.Models.VetServices;
 #nullable disable
 #nullable restore
 #line 6 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
-using PetCare.Services.Pets.Models;
+using PetCare.Models.Clinics;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
-using PetCare.Services.Employees.Models;
+using PetCare.Services.Pet.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
-using PetCare.Infrastructure;
+using PetCare.Services.Employee.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Services.VetService.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
 using PetCare.Data.Models.User;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Areas.Admin;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8689a58188714cf5e0bc96451e7d20ba3589f8f7", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d1181d1f34a595bb596b69b9d8cf544a314d3e64", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc2caffe34d60a8f5dcf272c136946eca460983c", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Employees", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -127,7 +148,7 @@ using PetCare.Data.Models.User;
         <h4 class=""text-dark"">ADOPTING</h4><h6 class=""text-dark"">THE RIGHT PET FOR YOUR FAMILY</h6>
         <br />
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f77412", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f77959", async() => {
                 WriteLiteral("GIVE US CALL");
             }
             );
@@ -157,7 +178,7 @@ using PetCare.Data.Models.User;
                 <h4>APOINTMENT</h4>
                 <p style=""color:#ffffff"">We work only with APOINTMENT</p>
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f79339", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f79886", async() => {
                 WriteLiteral("<kbd>LEARN MORE</kbd>");
             }
             );
@@ -186,7 +207,7 @@ using PetCare.Data.Models.User;
                 <h4>OUR SERVICES</h4>
                 <p style=""color:#ffffff"">We offer a variety of SERVICES</p>
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f711185", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f711732", async() => {
                 WriteLiteral("<kbd>LEARN MORE</kbd>");
             }
             );
@@ -215,7 +236,7 @@ using PetCare.Data.Models.User;
                 <h4>OUR TEAM</h4>
                 <p style=""color:#ffffff"">Meet out TEAM</p>
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f713019", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f713566", async() => {
                 WriteLiteral("<kbd>LEARN MORE</kbd>");
             }
             );
@@ -244,7 +265,7 @@ using PetCare.Data.Models.User;
                 <h4>CONTACT US</h4>
                 <p style=""color:#ffffff"">Contact with US</p>
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f714858", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8689a58188714cf5e0bc96451e7d20ba3589f8f715405", async() => {
                 WriteLiteral("<kbd>LEARN MORE</kbd>");
             }
             );

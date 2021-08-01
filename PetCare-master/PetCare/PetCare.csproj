@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Clinics\" />
-    <Folder Include="Services\City\" />
-    <Folder Include="Services\VetServices\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>

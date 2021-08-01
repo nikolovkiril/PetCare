@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using PetCare.Services.Pets.Models;
+    using PetCare.Services.Pet.Models;
 
     using static DataConstants.Pet;
 

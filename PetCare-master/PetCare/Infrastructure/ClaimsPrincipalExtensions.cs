@@ -2,7 +2,8 @@
 {
     using System.Security.Claims;
 
-    using static WebConstants;
+    using static PetCare.Areas.Admin.AdminConstans;
+
     public static class ClaimsPrincipalExtensions
     {
         public static string GetId(this ClaimsPrincipal user)

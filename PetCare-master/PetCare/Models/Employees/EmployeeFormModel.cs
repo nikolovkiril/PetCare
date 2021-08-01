@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using PetCare.Services.Employees.Models;
+    using PetCare.Services.Employee.Models;
 
     using static DataConstants.Employee;
 
@@ -35,7 +35,7 @@
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; init; } 
 
-        [Display(Name = "Please select")]
+        [Display(Name = "Position")]
         [Required]
         public int PositionId { get; init; }
 

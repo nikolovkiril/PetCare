@@ -12,16 +12,9 @@
 <div class="text-center">
 
     <h3>MEET OUR TEAM</h3>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
 
-        if (userIsAdmin)
-        {
-            <a class="btn btn-danger " asp-area="" asp-controller="Employees" asp-action="Add">Add new Employee</a>
-        }
-    }
     <hr class="my-4">
+
 </div>
 
 <div class="row">

@@ -1,10 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
-
-@model EmployeeDetailsServiceModel
-
+﻿@model EmployeeDetailsServiceModel
 
 @{
     ViewData["Title"] = "Details";
@@ -19,33 +13,11 @@
     <div class="card-body text-white">
         <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
 
-        @if (SignInManager.IsSignedIn(User))
-        {
-            var userIsAdmin = User.IsAdmin();
-
-            @if (userIsAdmin)
-            {
-                <div class="card-header" style="background-color: #605d5d">
-                    Hire Date: @Model.HireDate
-                </div>
-            }
-        }
-
         <hr class="my-1">
 
         <img class="card-img-top" src="@Model.Image">
 
         <p class="card-text-custom">@Model.Autobiography</p>
         <a asp-controller="Employees" asp-action="Team" class="btn btn-primary">Go back</a>
-        @if (SignInManager.IsSignedIn(User))
-        {
-            var userIsAdmin = User.IsAdmin();
-
-            @if (userIsAdmin)
-            {
-                <a asp-controller="Employees" asp-action="Edit" asp-route-employeeId="@Model.Id" class="btn btn-warning">Edit</a>
-                <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
-            }
-        }
     </div>
 </div>

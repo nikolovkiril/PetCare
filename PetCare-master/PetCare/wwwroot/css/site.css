@@ -195,6 +195,10 @@ footer.border-top {
     height: auto;
 }
 
-.position{
-    po
+.admin-body {
+    font-style: italic;
+}
+
+#dropdownMenuButton {
+    font-style: italic;
 }

@@ -32,7 +32,7 @@
                     <ul class="navbar-nav flex-grow-1 mr-2">
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
+                            var userIsAdmin = User.IsInRole(AdminConstans.AdministartorRoleName);
 
                             <li class="nav-item">
                                 <div class="dropdown">
@@ -73,8 +73,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Services</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="Team">Team</a>
-                                    <a class="dropdown-item" href="#">Contact Us</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="Team">Our Team</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Clinics" asp-action="Add">Contact Us</a>
                                 </div>
                             </div>
                         </li>

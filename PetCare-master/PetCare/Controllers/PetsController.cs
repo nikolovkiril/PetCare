@@ -4,7 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using PetCare.Models.Pets;
-    using PetCare.Services.Pets;
+    using PetCare.Services.Pet;
     using PetCare.Infrastructure;
     using PetCare.Services.Owner;
 

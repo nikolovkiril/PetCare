@@ -11,9 +11,11 @@ namespace PetCare
     using PetCare.Data;
     using PetCare.Data.Models.User;
     using PetCare.Infrastructure;
-    using PetCare.Services.Employees;
+    using PetCare.Services.Clinic;
+    using PetCare.Services.Employee;
     using PetCare.Services.Owner;
-    using PetCare.Services.Pets;
+    using PetCare.Services.Pet;
+    using PetCare.Services.VetService;
 
     public class Startup
     {
@@ -52,6 +54,8 @@ namespace PetCare
             services.AddTransient<IPetService, PetService>();
             services.AddTransient<IOwnerService, OwnerService>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IVetServiceService, VetServiceService>();
+            services.AddTransient<IClinicService, ClinicService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -77,6 +81,7 @@ namespace PetCare
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
                 {
+                    endpoints.MapDefaultAreaRoute();
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });

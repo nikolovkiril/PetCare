@@ -8,11 +8,12 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using PetCare.Data;
+    using PetCare.Data.Models.Clinic;
     using PetCare.Data.Models.Employee;
     using PetCare.Data.Models.Pet;
     using PetCare.Data.Models.User;
 
-    using static WebConstants;
+    using static PetCare.Areas.Admin.AdminConstans;
 
     public static class ApplicationBuilderExtensions
     {
@@ -28,6 +29,7 @@
             SeedPositions(services);
             SeedGenders(services);
             SeedAdministrator(services);
+            SeedCity(services);
 
             return app;
         }
@@ -103,19 +105,20 @@
         {
             var data = services.GetRequiredService<PetCareDbContext>();
 
-            //if (data.City.Any())
-            //{
-            //    return;
-            //}
+            if (data.Cities.Any())
+            {
+                return;
+            }
 
-            //data.City.AddRange(new[]
-            //{
-            //    new City { Name = "Sofia"},
-            //    new City { Name = "Plovdiv"},
-            //    new City { Name = "Varna"},
-            //});
+            data.Cities.AddRange(new[]
+            {
+                new City { Name = "Sofia"},
+                new City { Name = "Plovdiv"},
+                new City { Name = "Varna"},
+                new City { Name = "Burgas"},
+            });
 
-            //data.SaveChanges();
+            data.SaveChanges();
         }
 
         private static void SeedAdministrator(IServiceProvider services)

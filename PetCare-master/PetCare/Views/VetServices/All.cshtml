@@ -1,27 +1,16 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using PetCare.Data.Models.User
-
-@inject SignInManager<User> SignInManager
-
-@model List<AllVetServicesFormModel>
+﻿@model List<AllVetServiceServiceModel>
 
 @{
     ViewBag.Title = "All Services";
 }
 
 <body class="text-center">
-    <h3>OUR LATEST SERVICES</h3>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        var userIsAdmin = User.IsInRole(WebConstants.AdministartorRoleName);
 
-        if (userIsAdmin)
-        {
-            <a class="btn btn-danger" asp-area="" asp-controller="VetServices" asp-action="Add">Add new Service</a>
-        }
-    }
+    <h3>OUR LATEST SERVICES</h3>
+
+    <hr class="my-4">
+
 </body>
-<hr class="my-4">
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
