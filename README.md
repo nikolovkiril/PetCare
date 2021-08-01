@@ -6,4 +6,4 @@ ASP.NET Core App for final project at SoftUni C# Web Module.
 <hr class="my-1">
 <h4>Technologies used:</h4>
 
-*Using ASP.NET Core 5.0
+* Using ASP.NET Core 5.0
