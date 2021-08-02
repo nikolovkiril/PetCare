@@ -9,6 +9,7 @@
     using PetCare.Services.Pet.Models;
     using PetCare.Services.Clinics.Models;
     using PetCare.Data.Models.Clinic;
+    using PetCare.Services.Clinic.Models;
 
     public class MappingProfile : Profile
     {
@@ -34,6 +35,8 @@
 
             //Clinic
             this.CreateMap<City, CityNameServiceModel>();
+            this.CreateMap<Clinic, AllClinicsServiceModel>()
+                .ForMember(c => c.CityName , cfg => cfg.MapFrom(c => c.City.Name));
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
-
-@model List<EmployeeDetailsServiceModel>
+﻿@model List<EmployeeDetailsServiceModel>
 
 @{
     ViewData["Title"] = "Our Team";
@@ -20,7 +15,7 @@
 <div class="row">
     @foreach (var employee in Model)
     {
-        <figure class="figure text-center responsive mr-auto col-md-4">
+        <div class="figure text-center responsive mr-auto col-md-4">
             <a asp-controller="Employees" asp-action="Details" asp-route-employeeId="@employee.Id">
                 <img class="card-img-top" src="@employee.Image">
             </a>
@@ -28,6 +23,6 @@
                 <h5 class="card-title text-center">@employee.FirstName  @employee.LasttName</h5>
                 <p class="card-text text-center">@employee.Position</p>
             </div>
-        </figure>
+        </div>
     }
 </div>

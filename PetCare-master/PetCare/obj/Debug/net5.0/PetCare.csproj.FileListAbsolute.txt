@@ -469,3 +469,5 @@ D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Clinics\A
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Clinics\_ClinicFormPartial.cshtml.g.cs
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Admin\Views\Clinics\Add.cshtml.g.cs
 D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Admin\Views\Clinics\_ClinicFormPartial.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Views\Clinics\All.cshtml.g.cs
+D:\Code C#\PetCare\PetCare-master\PetCare\obj\Debug\net5.0\Razor\Areas\Admin\Views\Clinics\All.cshtml.g.cs

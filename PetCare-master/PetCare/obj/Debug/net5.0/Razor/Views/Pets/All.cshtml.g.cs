@@ -77,20 +77,27 @@ using PetCare.Services.VetService.Models;
 #nullable disable
 #nullable restore
 #line 10 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
-using PetCare.Infrastructure;
+using PetCare.Services.Clinic.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
-using PetCare.Data.Models.User;
+using PetCare.Infrastructure;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
+using PetCare.Data.Models.User;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Code C#\PetCare\PetCare-master\PetCare\Views\_ViewImports.cshtml"
 using PetCare.Areas.Admin;
 
 #line default
@@ -104,7 +111,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1b2da06800456e4ec23adb31c003ad8de7b9da29", @"/Views/Pets/All.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc2caffe34d60a8f5dcf272c136946eca460983c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27e1d095656573df73bb7cad07413d1a55c22761", @"/Views/_ViewImports.cshtml")]
     public class Views_Pets_All : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<PetDetailsServiceModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Pets", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -158,7 +165,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"text-center\">\r\n        <h2 class=\"display-4\" font-weight: bold;>Welcome</h2>\r\n        <p class=\"lead\">You have no pets registered</p>\r\n        <hr class=\"my-4\">\r\n        <p class=\"lead\">\r\n        </p>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b2da06800456e4ec23adb31c003ad8de7b9da297730", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b2da06800456e4ec23adb31c003ad8de7b9da297918", async() => {
                 WriteLiteral("Add Pet");
             }
             );
@@ -286,7 +293,7 @@ WriteAttributeValue("", 1541, pet.Image, 1541, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b2da06800456e4ec23adb31c003ad8de7b9da2912808", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b2da06800456e4ec23adb31c003ad8de7b9da2912996", async() => {
                 WriteLiteral("Info");
             }
             );

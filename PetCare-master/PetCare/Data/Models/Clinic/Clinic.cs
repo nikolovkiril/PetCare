@@ -1,7 +1,6 @@
 ﻿namespace PetCare.Data.Models.Clinic
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static PetCare.Models.DataConstants.Clinic;
