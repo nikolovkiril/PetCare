@@ -37,5 +37,8 @@
         [Url]
         [Required]
         public string Image { get; set; }
+
+        [Required]
+        public bool IsForAdoption { get; set; }
     }
 }

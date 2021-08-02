@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@model List<PetDetailsServiceModel>
+
+@{
+    ViewData["Title"] = "Pet`s";
+}
+
+@if (!Model.Any())
+{
+    <div class="text-center">
+        <h2 class="display-4" font-weight: bold;>Welcome</h2>
+        <p class="lead">You have no pets registered</p>
+        <hr class="my-4">
+        <p class="lead">
+        </p>
+        <a asp-controller="Pets" asp-action="Add" class="btn btn-primary btn-lg" role="button">Add Pet</a>
+    </div>
+}
+else
+{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var userIsAdmin = User.IsAdmin();
+        @if (userIsAdmin)
+        {
+            <h2 class="text-center">All Pets</h2>
+        }
+        else
+        {
+            <h2 class="text-center">My Pets</h2>
+        }
+        <hr class="my-4">
+
+        <div class="row">
+            @foreach (var pet in Model)
+            {
+                <div class="card text-center responsive col-md-6 col-xl-4">
+
+                    @if (userIsAdmin)
+                    {
+                        <div class="card-header font-weight-bold text-white" style="background-color: #605d5d">
+                            OwderId: @pet.OwnerId
+                        </div>
+                    }
+                    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
+                        @pet.Name
+                    </div>
+                    <img class="card-img-top" src="@pet.Image">
+                    <div class="card-body">
+                        <p class="card-text">@pet.Animal</p>
+                        <a asp-controller="Pets" asp-action="Details" asp-route-petId="@pet.Id" class="btn btn-info">Info</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    }
+}

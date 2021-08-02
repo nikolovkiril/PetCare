@@ -63,5 +63,19 @@
             public const int CityMinLength = 3;
             public const int CityMaxLength = 30;
         }
+
+        public class AdoptPet
+        {
+            public const int NameMinLength = 2;
+            public const int NameMaxLength = 40;
+
+            public const int AgeMinRange = 1;
+            public const int AgeMaxRange = 100;
+
+            public const int DescriptionMinLength = 5;
+
+            public const int BreedMinLength = 3;
+            public const int BreedMaxLength = 25;
+        }
     }
 }

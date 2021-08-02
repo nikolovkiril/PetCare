@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
     public class Animal
     {
         public int Id { get; init; }
@@ -11,6 +10,5 @@
         public string AnimalType { get; set; }
 
         public IEnumerable<Pet> Pets { get; set; } = new List<Pet>();
-
     }
 }

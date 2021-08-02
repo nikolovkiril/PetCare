@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PetCare.Data.Models.User
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="admin-body" style='background: rgb(224 233 229) ' > 
+    
+    <header class="active">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-5 font-weight-bold">
+            <div class="container">
+                @*<a class="navbar-brand text-white-50" asp-area="" asp-controller="Home" asp-action="Index">Pet Care</a>*@
+                <p class="site-title">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Logo/5_600x600.png" class="custom-logo" alt="" />
+                    </a>
+                </p>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
+                    <ul class="navbar-nav flex-grow-1 mr-2">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    PET
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Pets" asp-action="All">All Pets</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Pets" asp-action="Apointment">Apointments</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ADOPT ME
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item disabled" asp-area="Admin" asp-controller="VetServices" asp-action="All">Comming soon...</a>
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Find</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="VetServices" asp-action="All">Add</a>*@
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ABOUT US
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="VetServices" asp-action="All">Services</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="VetServices" asp-action="Add">Add Service</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Employees" asp-action="Team">Empoyees</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Employees" asp-action="Add">Add Employee</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Clinics" asp-action="All">Contact Us</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Clinics" asp-action="Add">Add New Clinic</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted text-center">
+        <div class="container class=" text-center p-3"">
+            <a class="font-weight-bold" style="color: #716d6d">&copy; @DateTime.UtcNow.Year -Pet Care-  All rights reserved.</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

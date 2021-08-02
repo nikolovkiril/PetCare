@@ -1,0 +1,29 @@
+﻿@model EmployeeDetailsServiceModel
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="card text-center responsive col-md-6 col-xl-4" style="background-color: #a06f5a">
+    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
+        @Model.Position.ToUpper()
+    </div>
+
+    <div class="card-body text-white">
+        <h5 class="card-title text-center">@Model.FirstName @Model.LasttName</h5>
+        <h6 class="card-title text-center">@Model.Age years old</h6>
+        <div class="card-header" style="background-color: #605d5d">
+            Hire Date: @Model.HireDate
+        </div>
+
+        <hr class="my-1">
+
+        <img class="card-img-top" src="@Model.Image">
+        <p class="card-text-custom">@Model.Autobiography</p>
+        <a asp-controller="Employees" asp-action="Team" class="btn btn-primary">Go back</a>
+        <a asp-controller="Employees" asp-action="Edit" asp-route-employeeId="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+    </div>
+</div>

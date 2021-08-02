@@ -1,0 +1,19 @@
+﻿@model VetServiceDetailsServiceModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card text-center responsive col-md-6 col-xl-4">
+    <div class="card-header font-weight-bold" style="background-color: #dcdcdc">
+        @Model.ServiceName.ToUpper()
+    </div>
+    <div class="card-body">
+        <img class="card-img-top" src="@Model.ImgUrl">
+
+        <p class="card-text-custom">@Model.Description</p>
+        <a asp-controller="VetServices" asp-action="All" class="btn btn-primary">Go back</a>
+        <a asp-controller="Employees" asp-action="Team" class="btn btn-warning">Edit</a>
+        <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+    </div>
+</div>

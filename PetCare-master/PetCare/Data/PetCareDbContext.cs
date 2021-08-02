@@ -25,7 +25,7 @@
         public DbSet<City> Cities { get; init; }
         public DbSet<Clinic> Clinics { get; init; }
 
-
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
@@ -69,6 +69,7 @@
                .WithMany(e => e.Clinics)
                .HasForeignKey(p => p.CityId)
                .OnDelete(DeleteBehavior.Restrict);
+           
 
             base.OnModelCreating(builder);
         }
