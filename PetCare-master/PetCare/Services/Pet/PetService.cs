@@ -31,7 +31,8 @@
             string description,
             DateTime birthDate,
             string image,
-            int ownerId)
+            int ownerId,
+             bool isForAdoption)
         {
             var pet = new Pet
             {
@@ -42,7 +43,8 @@
                 Description = description,
                 BirthDate = birthDate,
                 Image = image,
-                OwnerId = ownerId
+                OwnerId = ownerId,
+                IsForAdoption = isForAdoption
             };
 
             this.data.Pets.Add(pet);
@@ -56,17 +58,28 @@
                 .Any(t => t.Id == petId);
 
 
-
         public bool IsAnimalExist(int AnimalId)
             => this.data
                 .Animals
                 .Any(a => a.Id == AnimalId);
+
 
         public bool IsGenderExist(int GenderId)
             => this.data
                 .Genders
                 .Any(g => g.Id == GenderId);
 
+
+        public IEnumerable<PetDetailsServiceModel> All()
+        {
+            var all = this.data
+                .Pets
+                .Where(u => u.IsForAdoption == true)
+                .ProjectTo<PetDetailsServiceModel>(this.mapper.ConfigurationProvider)
+                .ToList();
+
+            return all;
+        }
 
         public IEnumerable<PetDetailsServiceModel> All(string userId)
         {
@@ -78,6 +91,7 @@
 
             return all;
         }
+
         public IEnumerable<PetDetailsServiceModel> All(bool isAdmin)
         {
             var all = this.data
@@ -131,7 +145,8 @@
             int animalId,
             string description,
             DateTime birthDate,
-            string image)
+            string image,
+            bool isForAdoption)
         {
             var petToEdit = this.data.Pets.Find(petId);
 
@@ -147,6 +162,7 @@
             petToEdit.Description = description;
             petToEdit.BirthDate = birthDate;
             petToEdit.Image = image;
+            petToEdit.IsForAdoption = isForAdoption;
 
             this.data.SaveChanges();
 

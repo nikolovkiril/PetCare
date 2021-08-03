@@ -75,6 +75,7 @@ namespace PetCare
 
             app
                 .UseHttpsRedirection()
+                .UseDefaultFiles()
                 .UseStaticFiles()
                 .UseRouting()
                 .UseAuthentication()

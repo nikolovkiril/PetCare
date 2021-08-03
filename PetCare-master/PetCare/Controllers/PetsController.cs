@@ -7,6 +7,7 @@
     using PetCare.Services.Pet;
     using PetCare.Infrastructure;
     using PetCare.Services.Owner;
+    using System.Globalization;
 
     [Authorize]
     public class PetsController : Controller
@@ -69,7 +70,8 @@
                 pet.Description,
                 pet.BirthDate,
                 pet.Image,
-                ownerId);
+                ownerId,
+                pet.IsForAdoption);
 
             return RedirectToAction(nameof(All));
         }
@@ -118,7 +120,7 @@
                 AnimalId = pet.AnimalId,
                 GengerTypes = this.petService.GetGender(),
                 AnimalTypes = this.petService.GetAnimalTypes(),
-                BirthDate = DateTime.UtcNow,
+                BirthDate = pet.BirthDate.Date,
                 Image = pet.Image
             });
         }
@@ -156,7 +158,8 @@
                 pet.AnimalId,
                 pet.Description,
                 pet.BirthDate,
-                pet.Image);
+                pet.Image,
+                pet.IsForAdoption);
 
             if (!petIsEdited)
             {

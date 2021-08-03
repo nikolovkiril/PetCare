@@ -65,7 +65,8 @@
                 GengerTypes = this.petService.GetGender(),
                 AnimalTypes = this.petService.GetAnimalTypes(),
                 BirthDate = DateTime.UtcNow,
-                Image = pet.Image
+                Image = pet.Image,
+                IsForAdoption = pet.IsForAdoption
             });
         }
 
@@ -102,7 +103,8 @@
                 pet.AnimalId,
                 pet.Description,
                 pet.BirthDate,
-                pet.Image);
+                pet.Image,
+                pet.IsForAdoption);
 
             if (!petIsEdited)
             {

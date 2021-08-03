@@ -28,10 +28,10 @@
         public string Description { get; init; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "d")]
         [Display(Name = "Birth Date")]
 
-        public DateTime BirthDate { get; init; }
+        public DateTime BirthDate { get; set; }
 
         [Required]
         [StringLength(BreedMaxLength,
@@ -42,6 +42,9 @@
 
         [Required]
         public string Image { get; set; }
+
+        [Required]
+        public bool IsForAdoption { get; set; }
 
         public IEnumerable<AnimalTypeServiceModel> AnimalTypes { get; set; }
         public IEnumerable<GenderTypeServiceModel> GengerTypes { get; set; }

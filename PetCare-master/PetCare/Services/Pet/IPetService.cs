@@ -18,7 +18,8 @@
             string description,
             DateTime birthDate,
             string image,
-            int ownerId);
+            int ownerId,
+            bool isForAdoption);
 
         bool Edit(
           string petId,
@@ -28,11 +29,13 @@
           int animalId,
           string description,
           DateTime birthDate,
-          string image);
+          string image,
+          bool isForAdoption);
 
-        
+
         PetDetailsServiceModel Details(string petId);
 
+        public IEnumerable<PetDetailsServiceModel> All();
         IEnumerable<PetDetailsServiceModel> All(string userId);
         IEnumerable<PetDetailsServiceModel> All(bool isAdmin);
 
