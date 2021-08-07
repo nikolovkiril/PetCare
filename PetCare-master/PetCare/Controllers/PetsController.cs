@@ -97,19 +97,22 @@
         {
             var userId = this.User.GetId();
 
-            if (!this.ownerService.IsUserOwner(userId, petId) && !User.IsAdmin())
+            var pet = this.petService.Details(petId , userId);
+
+            if (!this.ownerService.IsUserOwner(userId, petId) && !User.IsAdmin() && pet.IsForAdoption == false)
             {
                 return RedirectToAction(nameof(All));
             }
 
-            var pet = this.petService.Details(petId);
 
             return View(pet);
         }
 
         public IActionResult Edit(string petId)
         {
-            var pet = this.petService.Details(petId);
+            var userId = this.User.GetId();
+
+            var pet = this.petService.Details(petId , userId);
 
             return View(new PetFormModel 
             {
@@ -165,6 +168,13 @@
             {
                 return BadRequest();
             }
+
+            return RedirectToAction(nameof(All));
+        }
+
+        public IActionResult Delete(string petId)
+        {
+            this.petService.Delete(petId);
 
             return RedirectToAction(nameof(All));
         }

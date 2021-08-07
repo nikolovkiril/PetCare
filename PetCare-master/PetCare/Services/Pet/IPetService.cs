@@ -10,6 +10,8 @@
 
         bool IsGenderExist(int GenderId);
 
+        bool IsOwner(string userId, string petId);
+
         void CreatePet(
             string name,
             string breed,
@@ -32,10 +34,10 @@
           string image,
           bool isForAdoption);
 
+        bool Delete(string petId);
 
-        PetDetailsServiceModel Details(string petId);
 
-        public IEnumerable<PetDetailsServiceModel> All();
+        PetDetailsServiceModel Details(string petId , string userId);
         IEnumerable<PetDetailsServiceModel> All(string userId);
         IEnumerable<PetDetailsServiceModel> All(bool isAdmin);
 

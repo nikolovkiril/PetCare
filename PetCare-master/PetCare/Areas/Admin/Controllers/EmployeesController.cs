@@ -116,5 +116,12 @@
 
             return RedirectToAction(nameof(Team));
         }
+
+        public IActionResult Delete(string employeeId)
+        {
+            this.employeeService.Delete(employeeId);
+
+            return RedirectToAction(nameof(Team));
+        }
     }
 }

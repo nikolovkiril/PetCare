@@ -128,5 +128,23 @@
 
             return true;
         }
+
+        public bool Delete(string employeeId)
+        {
+            var employee = this.data
+                .Employees
+                .Find(employeeId);
+
+            if (employee == null)
+            {
+                return false;
+            }
+
+            this.data.Employees.Remove(employee);
+
+            this.data.SaveChanges();
+
+            return true;
+        }
     }
 }

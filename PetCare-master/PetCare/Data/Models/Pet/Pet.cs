@@ -27,7 +27,7 @@
         public Gender GenderType { get; set; }
 
         [Required]
-        public int OwnerId { get; init; }
+        public int OwnerId { get; set; }
         public Owner Owner { get; set; }
 
         [Required]

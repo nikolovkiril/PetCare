@@ -11,15 +11,15 @@
             MinimumLength = ServiceNameMinLength,
             ErrorMessage = "Name must be between '3' and '30' symbols.")]
         [Display(Name = "Service Name")]
-        public string ServiceName { get; init; }
+        public string ServiceName { get; set; }
 
         [Required]
         [MinLength(DescriptionMinLength,
             ErrorMessage = "Description must be at least '5' symbols.")]
-        public string Description { get; init; }
+        public string Description { get; set; }
 
         [Required]
         [Display(Name = "Img Url")]
-        public string ImgUrl { get; init; }
+        public string ImgUrl { get; set; }
     }
 }

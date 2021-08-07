@@ -7,7 +7,7 @@
 
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Adoption details";
 }
 
 @{
@@ -25,10 +25,10 @@
         <h5 class="card-title text-center">@Model.Name is @Model.Age Years old</h5>
         <img class="card-img-top" src="@Model.Image">
         <p class="card-text-custom">@Model.Description</p>
-        <a asp-controller="Pets" asp-action="All" class="btn btn-primary">Go back</a>
-        @if (Model.IsForAdoption == true && !Model.IsOwner && !userIsAdmin)
+        <a asp-controller="Adoptions" asp-action="All" class="btn btn-primary">Go back</a>
+        @if (Model.IsForAdoption && !Model.IsOwner && !userIsAdmin)
         {
-            <a asp-controller="Pets" asp-action="Edit" asp-route-petId="@Model.Id" class="btn btn-warning">Adopt</a>
+            <a asp-controller="Adoptions" asp-action="Adopt" asp-route-petId="@Model.Id" class="btn btn-warning">Adopt</a>
         }
         else
         {

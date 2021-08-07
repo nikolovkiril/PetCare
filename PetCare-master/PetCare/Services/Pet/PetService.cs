@@ -70,16 +70,6 @@
                 .Any(g => g.Id == GenderId);
 
 
-        public IEnumerable<PetDetailsServiceModel> All()
-        {
-            var all = this.data
-                .Pets
-                .Where(u => u.IsForAdoption == true)
-                .ProjectTo<PetDetailsServiceModel>(this.mapper.ConfigurationProvider)
-                .ToList();
-
-            return all;
-        }
 
         public IEnumerable<PetDetailsServiceModel> All(string userId)
         {
@@ -87,6 +77,7 @@
                 .Pets
                 .Where(u => u.Owner.UserId == userId)
                 .ProjectTo<PetDetailsServiceModel>(this.mapper.ConfigurationProvider)
+                .OrderBy(p => p.IsForAdoption)
                 .ToList();
 
             return all;
@@ -103,15 +94,9 @@
             return all;
         }
 
-        public PetDetailsServiceModel Details(string petId)
+        public PetDetailsServiceModel Details(string petId, string userId)
         {
-            var petToDisplay = this.data
-               .Pets
-               .FirstOrDefault(p => p.Id == petId);
-
             var date = DateTime.UtcNow.Year;
-            var petAge = date - petToDisplay.BirthDate.Year;
-
 
             var pet = this.data
                  .Pets
@@ -119,7 +104,11 @@
                  .ProjectTo<PetDetailsServiceModel>(this.mapper.ConfigurationProvider)
                  .FirstOrDefault();
 
+            var petAge = date - pet.BirthDate.Year;
+
             pet.Age = (byte)petAge;
+
+            pet.IsOwner = IsOwner(petId, userId);
 
             return pet;
         }
@@ -163,6 +152,29 @@
             petToEdit.BirthDate = birthDate;
             petToEdit.Image = image;
             petToEdit.IsForAdoption = isForAdoption;
+
+            this.data.SaveChanges();
+
+            return true;
+        }
+
+        public bool IsOwner(string petId, string userId)
+              => this.data
+                .Pets
+                .Any(p => p.Id == petId && p.Owner.UserId == userId);
+
+        public bool Delete(string petId)
+        {
+            var pet = this.data
+                .Pets
+                .Find(petId);
+
+            if (pet == null)
+            {
+                return false;
+            }
+
+            this.data.Pets.Remove(pet);
 
             this.data.SaveChanges();
 

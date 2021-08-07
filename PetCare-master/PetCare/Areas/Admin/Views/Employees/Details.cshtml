@@ -24,6 +24,6 @@
         <p class="card-text-custom">@Model.Autobiography</p>
         <a asp-controller="Employees" asp-action="Team" class="btn btn-primary">Go back</a>
         <a asp-controller="Employees" asp-action="Edit" asp-route-employeeId="@Model.Id" class="btn btn-warning">Edit</a>
-        <a asp-controller="Employees" asp-action="Team" class="btn btn-danger">Delete</a>
+        <a asp-controller="Employees" asp-action="Delete" asp-route-employeeId="@Model.Id" class="btn btn-danger">Delete</a>
     </div>
 </div>

@@ -11,6 +11,7 @@ namespace PetCare
     using PetCare.Data;
     using PetCare.Data.Models.User;
     using PetCare.Infrastructure;
+    using PetCare.Services.Adoption;
     using PetCare.Services.Clinic;
     using PetCare.Services.Employee;
     using PetCare.Services.Owner;
@@ -56,6 +57,7 @@ namespace PetCare
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IVetServiceService, VetServiceService>();
             services.AddTransient<IClinicService, ClinicService>();
+            services.AddTransient<IAdoptionService, AdoptionService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

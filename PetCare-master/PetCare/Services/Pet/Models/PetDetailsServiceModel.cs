@@ -16,6 +16,7 @@
         public string Animal { get; set; }
         public string Image { get; set; }
         public string OwnerId { get; set; }
+        public bool IsOwner { get; set; }
         public bool IsForAdoption { get; set; }
     }
 }

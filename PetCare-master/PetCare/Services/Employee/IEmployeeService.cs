@@ -33,5 +33,7 @@
         EmployeeDetailsServiceModel Details(string employeeId);
 
         bool IsEmployeeExist(string employeeId);
+
+        bool Delete(string employeeId);
     }
 }

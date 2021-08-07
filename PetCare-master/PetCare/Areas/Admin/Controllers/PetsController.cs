@@ -37,7 +37,7 @@
             return View(pet);
         }
 
-        public IActionResult Details(string petId)
+        public IActionResult Details(string petId )
         {
             var userId = this.User.GetId();
 
@@ -46,14 +46,16 @@
                 return RedirectToAction(nameof(All));
             }
 
-            var pet = this.petService.Details(petId);
+            var pet = this.petService.Details(petId , userId);
 
             return View(pet);
         }
 
         public IActionResult Edit(string petId)
         {
-            var pet = this.petService.Details(petId);
+            var userId = this.User.GetId();
+            
+            var pet = this.petService.Details(petId , userId);
 
             return View(new PetFormModel 
             {
@@ -110,6 +112,13 @@
             {
                 return BadRequest();
             }
+
+            return RedirectToAction(nameof(All));
+        }
+
+        public IActionResult Delete(string petId)
+        {
+            this.petService.Delete(petId);
 
             return RedirectToAction(nameof(All));
         }

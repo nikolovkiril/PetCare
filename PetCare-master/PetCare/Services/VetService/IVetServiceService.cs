@@ -15,5 +15,9 @@
         bool VetServiceAny(int vetServiceId);
 
         VetServiceDetailsServiceModel Details(int vetServiceId);
+
+        bool Edit(int vetId , string serviceName, string description, string imgUrl);
+
+        bool Delete(int vetId);
     }
 }
