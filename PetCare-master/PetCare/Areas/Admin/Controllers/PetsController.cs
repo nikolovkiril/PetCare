@@ -8,8 +8,11 @@
     using PetCare.Infrastructure;
     using PetCare.Services.Owner;
 
-    [Authorize]
-    public class PetsController : AdminController
+    using static AdminConstans;
+
+    [Area(AdminConstans.AreaName)]
+    [Authorize(Roles = AdministartorRoleName)]
+    public class PetsController : Controller //: AdminController
     {
         private readonly IPetService petService;
         private readonly IOwnerService ownerService;
@@ -37,7 +40,7 @@
             return View(pet);
         }
 
-        public IActionResult Details(string petId )
+        public IActionResult Details(string petId)
         {
             var userId = this.User.GetId();
 

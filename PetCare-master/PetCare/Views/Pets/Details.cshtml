@@ -13,6 +13,9 @@
 @{
     var userIsAdmin = User.IsAdmin();
 
+    var date = DateTime.UtcNow.Year;
+    var petAge = date - Model.BirthDate.Year;
+    Model.Age = (byte)petAge;
 }
 
 <div class="card text-center responsive col-md-6 col-xl-4" style="background-color: #a06f5a">

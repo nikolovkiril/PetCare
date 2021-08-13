@@ -9,6 +9,7 @@
 
         [Required]
         public string UserId { get; init; }
+
         public IEnumerable<Pet> Pets { get; set; } = new List<Pet>();
     }
 }

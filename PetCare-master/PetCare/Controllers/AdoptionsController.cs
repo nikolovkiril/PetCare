@@ -33,7 +33,7 @@
 
             var pet = this.adoptionService.Edit(petId, userId);
 
-            return RedirectToAction("All","/Pets");
+            return RedirectToAction("/All","/Pets");
         }
     }
 }

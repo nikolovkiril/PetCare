@@ -96,17 +96,11 @@
 
         public PetDetailsServiceModel Details(string petId, string userId)
         {
-            var date = DateTime.UtcNow.Year;
-
             var pet = this.data
                  .Pets
                  .Where(p => p.Id == petId)
                  .ProjectTo<PetDetailsServiceModel>(this.mapper.ConfigurationProvider)
                  .FirstOrDefault();
-
-            var petAge = date - pet.BirthDate.Year;
-
-            pet.Age = (byte)petAge;
 
             pet.IsOwner = IsOwner(petId, userId);
 

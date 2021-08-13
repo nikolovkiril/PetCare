@@ -43,12 +43,11 @@
         [Required]
         public string Image { get; set; }
 
-        [Required]
         public bool IsForAdoption { get; set; }
 
-        public IEnumerable<AnimalTypeServiceModel> AnimalTypes { get; set; }
+        public IEnumerable<AnimalTypeServiceModel> AnimalTypes { get; set; } 
         public IEnumerable<GenderTypeServiceModel> GengerTypes { get; set; }
 
-       
+
     }
 }

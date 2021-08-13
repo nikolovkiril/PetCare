@@ -1,20 +1,17 @@
 ﻿namespace PetCare.Controllers
 {
-    using System;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using PetCare.Models.Pets;
     using PetCare.Services.Pet;
     using PetCare.Infrastructure;
     using PetCare.Services.Owner;
-    using System.Globalization;
 
-    [Authorize]
     public class PetsController : Controller
     {
         private readonly IPetService petService;
         private readonly IOwnerService ownerService;
-
+        
         public PetsController(
             IPetService petService,
             IOwnerService ownerService)
@@ -32,10 +29,13 @@
             });
 
         }
+
         [HttpPost]
+        [Authorize]
+
         public IActionResult Add(PetFormModel pet)
         {
-            var userId = this.User.GetId();
+            var userId = UserId();
 
             if (!this.ownerService.IsOwnerExist(userId))
             {
@@ -78,8 +78,8 @@
 
 
         public IActionResult All()
-        {
-            var userId = this.User.GetId();
+        {   
+            var userId = UserId();
 
             if (User.IsAdmin())
             {
@@ -95,7 +95,7 @@
 
         public IActionResult Details(string petId)
         {
-            var userId = this.User.GetId();
+            var userId = UserId();
 
             var pet = this.petService.Details(petId , userId);
 
@@ -110,7 +110,7 @@
 
         public IActionResult Edit(string petId)
         {
-            var userId = this.User.GetId();
+            var userId = UserId();
 
             var pet = this.petService.Details(petId , userId);
 
@@ -129,9 +129,11 @@
         }
 
         [HttpPost]
+        [Authorize]
+
         public IActionResult Edit(string petId, PetFormModel pet)
         {
-            var userId = this.User.GetId();
+            var userId = UserId();
 
             if (!this.petService.IsAnimalExist(pet.AnimalId))
             {
@@ -177,6 +179,12 @@
             this.petService.Delete(petId);
 
             return RedirectToAction(nameof(All));
+        }
+
+        public string UserId()
+        {
+            var userId = this.User.GetId();
+            return userId;
         }
     }
 }

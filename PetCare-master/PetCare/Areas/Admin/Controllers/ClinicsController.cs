@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Mvc;
     using PetCare.Models.Clinics;
     using PetCare.Services.Clinic;
-    using System;
 
     public class ClinicsController : AdminController
     {
@@ -50,11 +49,6 @@
             var clinic = this.clinicService.All();
 
             return View(clinic);
-        }
-
-        public IActionResult Details()
-        {
-            return null;
         }
     }
 }

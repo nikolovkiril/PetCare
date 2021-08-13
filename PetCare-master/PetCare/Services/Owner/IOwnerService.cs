@@ -9,6 +9,5 @@
         void AddOwner(string userId);
 
         int GetOwnerId(string userId);
-
     }
 }

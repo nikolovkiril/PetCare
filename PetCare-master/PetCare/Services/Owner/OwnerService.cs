@@ -28,6 +28,7 @@
                  .Select(u => u.Id)
                  .FirstOrDefault();
 
+
         public bool IsOwnerExist(string userId)
             => this.data
                 .Owners
